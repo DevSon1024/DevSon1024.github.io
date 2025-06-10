@@ -197,7 +197,7 @@ body {
 }
 
 .profile, .social-links {
-    animation: fadeIn 3s ease-out forwards;
+    animation: fadeIn 1.5s ease-out forwards;
 }
 /* Skeleton Loading Animation */
 @keyframes shimmer {
