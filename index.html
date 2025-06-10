@@ -11,16 +11,25 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="style/index.css">
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100">
-    <header class="header container-fluid py-8 px-4 md:px-8">
+<body class="bg-slate-800">
+    <header class="header container-fluid py-8 px-4 md:px-12 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center">
+        <div class="logo mb-4" data-aos="fade-down">
+            <div class="skeleton-img w-32 h-32 mx-auto">
+                <img 
+                    src="assets/logo.png" 
+                    alt="Logo" 
+                    class="rounded-full w-32 h-32 mx-auto"
+                    onload="this.parentElement.classList.add('loaded')">
+            </div>
+            
         <div class="profile" data-aos="fade-down">
-            <h1 class="text-4xl md:text-5xl mb-4">Hello World</h1>
-            <h2 class="text-2xl md:text-3xl mb-2">Devendra Sonawane</h2>
-            <h3 class="text-xl md:text-2xl">Web Developer</h3>
+            <h1 class="text-4xl md:text-5xl mb-4">Hello World!</h1>
+            <h2 class="text-2xl md:text-3xl mb-2">I Am Devendra Sonawane,</h2>
+            <h3 class="text-xl md:text-2xl">A Web Developer and Android Enthusiastic</h3>
         </div>
         <div class="social-links mt-6" data-aos="fade-up">
             <div class="social-link">
@@ -44,14 +53,16 @@
         </div>
     </header>
 
-    <nav class="menus nav container-fluid sticky-top py-3">
-        <div class="d-flex justify-content-center gap-4 w-100">
+    <nav class="nav container-fluid sticky-top py-3">
+        <div class="nav-links-container flex justify-center space-x-6">
             <a href="#home" class="nav-link">Home</a>
-            <a href="#about" class="nav-link">About</a>
+            <a href="pages/about.html" class="nav-link">About</a>
             <a href="#projects" class="nav-link">Projects</a>
             <a href="#contact" class="nav-link">Contact</a>
         </div>
     </nav>
+
+    <center><h1>Work Is in Progress for portfolio !!!!</h1></center>
 
     <main id="home" class="container mx-auto px-4 py-8">
         <p class="text-lg md:text-xl mb-4" data-aos="fade-right">Welcome to my portfolio website!</p>
@@ -79,5 +90,29 @@
             once: true
         });
     </script>
+    <script>
+    // Skeleton loading handler
+    document.addEventListener('DOMContentLoaded', function() {
+        const images = document.querySelectorAll('img');
+        
+        images.forEach(img => {
+            // If image is already loaded
+            if (img.complete) {
+                img.parentElement.classList.add('loaded');
+            }
+            
+            // When image loads
+            img.addEventListener('load', function() {
+                img.parentElement.classList.add('loaded');
+            });
+            
+            // If image fails to load
+            img.addEventListener('error', function() {
+                img.parentElement.classList.add('loaded');
+                img.style.display = 'none';
+            });
+        });
+    });
+</script>
 </body>
 </html>
