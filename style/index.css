@@ -14,7 +14,7 @@ html, body {
     font-family: 'Inter', sans-serif;
     color: var(--text-color);
 }
-p {
+h6,p {
     font-size: 1.2em;
     text-align: center;
     margin-top: 10px;
@@ -26,7 +26,6 @@ body {
     color: var(--text-color);
     margin: 0;
     padding: 20px;
-
 }
 .header {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
@@ -144,6 +143,23 @@ body {
     color: var(--primary-color);
     font-weight: 600;
 }
+.animated-name {
+    display: inline-block;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.animated-name:hover {
+    transform: scale(1.2);
+    font-weight: 700;
+    color: #4ade80;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(100px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
 @media (max-width: 768px) {
     .header {
         padding: 2rem 1rem;
@@ -239,4 +255,74 @@ body {
 
 .skeleton-img.loaded::before {
     display: none;
+}
+
+/* Stylish Text Containers */
+.text-container {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.text-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(99, 102, 241, 0.2);
+    border-color: rgba(99, 102, 241, 0.3);
+}
+
+/* Stylish Text Elements */
+section h2, h3 {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 1rem;
+}
+
+/* p {
+    line-height: 1.8;
+    color: var(--text-color);
+    opacity: 0.9;
+    transition: all 0.3s ease;
+} */
+
+.text-container:hover p {
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+/* Highlight Important Text */
+.highlight {
+    background: linear-gradient(120deg, rgba(99, 102, 241, 0.2) 0%, rgba(99, 102, 241, 0.1) 100%);
+    padding: 0.2em 0.4em;
+    border-radius: 0.3em;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.highlight:hover {
+    background: linear-gradient(120deg, rgba(99, 102, 241, 0.3) 0%, rgba(99, 102, 241, 0.2) 100%);
+}
+
+/* Animation for Text Appearing */
+@keyframes slideInText {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-text {
+    animation: slideInText 0.5s ease forwards;
 }
