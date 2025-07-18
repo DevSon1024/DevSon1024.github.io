@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - Devendra Sonawane</title>
+    <!-- Optimized CSS loading -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <style>
+      /* CSS Variables for better performance */
+      :root {
+        --primary-color: #6366f1;
+        --secondary-color: #4f46e5;
+        --text-color: #e2e8f0;
+        --bg-color: #0f172a;
+        --dark-surface: #1e293b;
+        --border-color: rgba(255, 255, 255, 0.1);
+        --hover-bg: rgba(255, 255, 255, 0.05);
+        --success-color: #10b981;
+        --warning-color: #f59e0b;
+        --error-color: #ef4444;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        color: var(--text-color);
+        background-color: var(--bg-color);
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* Optimized container */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+        width: 100%;
+      }
+
+      /* Header optimizations */
+      .header {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        border-radius: 1rem;
+        margin-bottom: 2rem;
+        padding: 2rem 1rem;
+        text-align: center;
+        will-change: transform;
+      }
+
+      /* Optimized navigation */
+      .nav {
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--border-color);
+        border-radius: 1rem;
+        margin: 1rem 0;
+        padding: 1rem;
+        position: sticky;
+        top: 1rem;
+        z-index: 100;
+        overflow: hidden;
+      }
+
+      .nav-links-container {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        max-width: 100%;
+      }
+
+      .nav-link {
+        color: var(--text-color) !important;
+        font-weight: 600;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.75rem;
+        transition: all 0.2s ease;
+        background: rgba(99, 102, 241, 0.1);
+        text-decoration: none;
+        display: inline-block;
+        min-width: auto;
+        text-align: center;
+        border: 1px solid transparent;
+        font-size: 1rem;
+      }
+
+      .nav-link:hover {
+        color: white !important;
+        background: rgba(99, 102, 241, 0.2);
+        transform: translateY(-2px);
+        border-color: rgba(99, 102, 241, 0.3);
+      }
+
+      .nav-link.active {
+        background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        color: white !important;
+      }
+
+      /* Content cards */
+      .content-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--border-color);
+        border-radius: 1rem;
+        padding: 2rem;
+        margin: 2rem 0;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(8px);
+      }
+
+      .content-card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(99, 102, 241, 0.3);
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .content-card h2 {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 700;
+        font-size: 1.875rem;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+
+      .content-card p {
+        font-size: 1.125rem;
+        line-height: 1.7;
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      /* Contact form styles */
+      .contact-form {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: var(--text-color);
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: 1px solid var(--border-color);
+        border-radius: 0.5rem;
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--text-color);
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        background: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+      }
+
+      .form-textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      .form-button {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        border: none;
+        padding: 0.75rem 2rem;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .form-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+      }
+
+      .form-button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      /* Contact info grid */
+      .contact-info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .contact-info-item {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--border-color);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .contact-info-item:hover {
+        transform: translateY(-3px);
+        border-color: rgba(99, 102, 241, 0.3);
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .contact-info-item i {
+        font-size: 2rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+      }
+
+      .contact-info-item h3 {
+        color: var(--text-color);
+        margin-bottom: 0.5rem;
+        font-size: 1.25rem;
+      }
+
+      .contact-info-item p, .contact-info-item a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-size: 1rem;
+      }
+
+      .contact-info-item a:hover {
+        color: var(--primary-color);
+      }
+
+      /* Materials section */
+      .materials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .material-category {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--border-color);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .material-category:hover {
+        transform: translateY(-3px);
+        border-color: rgba(99, 102, 241, 0.3);
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .material-category h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-size: 1.25rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .material-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .material-item {
+        margin-bottom: 0.75rem;
+      }
+
+      .material-link {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--border-color);
+        border-radius: 0.5rem;
+        color: var(--text-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .material-link:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: var(--primary-color);
+        color: white;
+        transform: translateX(5px);
+      }
+
+      .material-link i {
+        color: var(--primary-color);
+        font-size: 1.25rem;
+      }
+
+      .material-link:hover i {
+        color: white;
+      }
+
+      .material-info {
+        flex: 1;
+      }
+
+      .material-name {
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+
+      .material-description {
+        font-size: 0.875rem;
+        opacity: 0.8;
+      }
+
+      .material-size {
+        font-size: 0.75rem;
+        color: var(--primary-color);
+        font-weight: 500;
+      }
+
+      /* Empty state */
+      .empty-state {
+        text-align: center;
+        padding: 3rem 1rem;
+        color: var(--text-color);
+        opacity: 0.6;
+      }
+
+      .empty-state i {
+        font-size: 3rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--secondary-color);
+        color: var(--text-color);
+        text-align: center;
+        border-radius: 1rem;
+        margin-top: 3rem;
+        padding: 2rem;
+      }
+
+      .footer a {
+        color: #fbbf24;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+      }
+
+      .footer a:hover {
+        color: #f59e0b;
+      }
+
+      /* Status messages */
+      .status-message {
+        padding: 1rem;
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
+        text-align: center;
+        font-weight: 500;
+        display: none;
+      }
+
+      .status-success {
+        background: rgba(16, 185, 129, 0.1);
+        border: 1px solid var(--success-color);
+        color: var(--success-color);
+      }
+
+      .status-error {
+        background: rgba(239, 68, 68, 0.1);
+        border: 1px solid var(--error-color);
+        color: var(--error-color);
+      }
+
+      /* Mobile optimizations */
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 0.75rem;
+        }
+
+        .header {
+          padding: 1.5rem 1rem;
+          margin-bottom: 1rem;
+        }
+
+        .nav {
+          margin: 0.5rem 0;
+          padding: 0.75rem;
+        }
+
+        .nav-links-container {
+          gap: 0.25rem;
+          justify-content: space-between;
+        }
+
+        .nav-link {
+          padding: 0.5rem 0.75rem;
+          font-size: 0.875rem;
+          flex: 1;
+          min-width: 0;
+        }
+
+        .content-card {
+          padding: 1.5rem;
+          margin: 1rem 0;
+        }
+
+        .content-card h2 {
+          font-size: 1.5rem;
+        }
+
+        .content-card p {
+          font-size: 1rem;
+        }
+
+        .contact-info-grid {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+        .materials-grid {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .nav-link {
+          padding: 0.4rem 0.5rem;
+          font-size: 0.8rem;
+        }
+
+        .content-card {
+          padding: 1rem;
+        }
+
+        .material-category {
+          padding: 1rem;
+        }
+      }
+
+      /* Performance optimizations */
+      .performance-optimized {
+        transform: translateZ(0);
+        backface-visibility: hidden;
+        perspective: 1000px;
+      }
+
+      /* Reduce motion for users who prefer it */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <header class="header performance-optimized">
+        <h1>Contact & Materials</h1>
+        <p>Get in touch or access study materials</p>
+      </header>
+
+      <!-- Navigation -->
+      <nav class="nav performance-optimized">
+        <div class="nav-links-container">
+          <a href="../index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="projects.html" class="nav-link">Projects</a>
+          <a href="contact.html" class="nav-link active">Contact</a>
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Contact Information -->
+        <section class="content-card performance-optimized">
+          <h2>Contact Information</h2>
+          <div class="contact-info-grid">
+
+            <a href="mailto:dpsonawane789@gmail.com"><div class="contact-info-item">
+              <i class="fas fa-envelope"></i>
+              <h3>Email</h3>
+              dpsonawane789@gmail.com
+            </div></a>
+            
+            <a href="https://www.linkedin.com/in/devendra-sonawane-93763636a/" target="_blank"><div class="contact-info-item">
+              <i class="fab fa-linkedin"></i>
+              <h3>LinkedIn</h3>
+              Connect with me
+            </div></a>
+
+             <a href="https://github.com/DevSon1024" target="_blank">
+                <div class="contact-info-item">
+              <i class="fab fa-github"></i>
+              <h3>GitHub</h3>
+              View my projects
+            </div></a>
+            
+            
+          </div>
+        </section>
+
+        <!-- Contact Form -->
+        <!-- <section class="content-card performance-optimized">
+          <h2>Send me a message</h2>
+          <form class="contact-form" id="contactForm">
+            <div id="statusMessage" class="status-message"></div>
+            
+            <div class="form-group">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" id="name" name="name" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" name="email" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+              <label for="subject" class="form-label">Subject</label>
+              <input type="text" id="subject" name="subject" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+              <label for="message" class="form-label">Message</label>
+              <textarea id="message" name="message" class="form-input form-textarea" required></textarea>
+            </div>
+
+            <button type="submit" class="form-button">
+              <i class="fas fa-paper-plane"></i>
+              Send Message
+            </button>
+          </form>
+        </section> -->
+
+        <!-- Study Materials Section -->
+        <section class="content-card performance-optimized">
+          <h2>Study Materials</h2>
+          <p>Access course materials, assignments, and resources</p>
+          
+          <div class="materials-grid">
+            <!-- Materials -->
+            <div class="material-category">
+              <h3>
+                <i class="fas fa-code"></i>
+                Materials
+              </h3>
+              <ul class="material-list" id="dotnetMaterials">
+                <li class="material-item">
+                  <a href="../assets/material/502-Network_technologies-Material.pdf" class="material-link" target="_blank">
+                    <i class="fas fa-file-pdf"></i>
+                    <div class="material-info">
+                      <div class="material-name">502 [Network Technologies Material]</div>
+                      <div class="material-description"></div>
+                    </div>
+                  </a>
+                </li>
+                <li class="material-item">
+                  <a href="../assets/materials/dotnet/csharp-fundamentals.pdf" class="material-link" target="_blank">
+                    <i class="fas fa-file-pdf"></i>
+                    <div class="material-info">
+                      <div class="material-name">505 [.Net Technology Material]</div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Assignment Questions -->
+            <div class="material-category">
+              <h3>
+                <i class="fas fa-tasks"></i>
+                Assignment Questions
+              </h3>
+              <ul class="material-list" id="assignmentMaterials">
+                <li class="material-item">
+                  <a href="../assets/material/502-Network_technologies-assignment.pdf" class="material-link" target="_blank">
+                    <i class="fas fa-file-alt"></i>
+                    <div class="material-info">
+                      <div class="material-name">502 [Network Technologies Assignment]</div>
+                    </div>
+                  </a>
+                </li>
+                <li class="material-item">
+                  <a href="../assets/material/503-01-AWD-Assignment.pdf" class="material-link" target="_blank">
+                    <i class="fas fa-file-alt"></i>
+                    <div class="material-info">
+                      <div class="material-name">503-01 [AWD Assignment]</div>
+                    </div>
+                  </a>
+                </li>
+                <li class="material-item">
+                  <a href="../assets/material/506-AWD-assignment.pdf" class="material-link" target="_blank">
+                    <i class="fas fa-file-alt"></i>
+                    <div class="material-info">
+                      <div class="material-name">506 [AWD Assignment]</div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Journal Questions -->
+            <div class="material-category">
+              <h3>
+                <i class="fas fa-book"></i>
+                Journal Questions
+              </h3>
+              <ul class="material-list" id="journalMaterials">
+                <li class="material-item">
+                  <a href="../assets/materials/journals/journal-week2.pdf" class="material-link" target="_blank">
+                    <i class="fas fa-file-text"></i>
+                    <div class="material-info">
+                      <div class="material-name">505 [.Net Technology Journal]</div>
+                    </div>
+                  </a>
+                </li>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <p>&copy; 2025 Devendra Sonawane</p>
+        <p>
+          Contact me at:
+          <a href="mailto:dpsonawane789@gmail.com">dpsonawane789@gmail.com</a>
+        </p>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+      // Performance optimizations
+      const performanceOptimizations = {
+        // Debounce function for events
+        debounce: function(func, wait) {
+          let timeout;
+          return function executedFunction(...args) {
+            const later = () => {
+              clearTimeout(timeout);
+              func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+          };
+        },
+
+        // Setup navigation
+        setupNavigation: function() {
+          const navLinks = document.querySelectorAll('.nav-link');
+          
+          navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+              navLinks.forEach(l => l.classList.remove('active'));
+              this.classList.add('active');
+            });
+          });
+        },
+
+        // Setup contact form
+        // Replace the existing setupContactForm function with this one:
+
+        // setupContactForm: function() {
+        // const form = document.getElementById('contactForm');
+        // const statusMessage = document.getElementById('statusMessage');
+        
+        // form.addEventListener('submit', function(e) {
+        //     e.preventDefault();
+            
+        //     // Get form data
+        //     const formData = new FormData(form);
+        //     const name = formData.get('name');
+        //     const email = formData.get('email');
+        //     const subject = formData.get('subject');
+        //     const message = formData.get('message');
+            
+        //     // Show loading state
+        //     const submitBtn = form.querySelector('button[type="submit"]');
+        //     const originalText = submitBtn.innerHTML;
+        //     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        //     submitBtn.disabled = true;
+            
+        //     // Send email using EmailJS
+        //     emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+        //     from_name: name,
+        //     from_email: email,
+        //     subject: subject,
+        //     message: message,
+        //     to_email: 'dpsonawane789@gmail.com'
+        //     })
+        //     .then(function(response) {
+        //     console.log('SUCCESS!', response.status, response.text);
+            
+        //     // Reset form
+        //     form.reset();
+            
+        //     // Show success message
+        //     statusMessage.textContent = 'Message sent successfully! I\'ll get back to you soon.';
+        //     statusMessage.className = 'status-message status-success';
+        //     statusMessage.style.display = 'block';
+            
+        //     // Hide message after 5 seconds
+        //     setTimeout(() => {
+        //         statusMessage.style.display = 'none';
+        //     }, 5000);
+        //     })
+        //     .catch(function(error) {
+        //     console.log('FAILED...', error);
+            
+        //     // Show error message
+        //     statusMessage.textContent = 'Failed to send message. Please try again or contact me directly.';
+        //     statusMessage.className = 'status-message status-error';
+        //     statusMessage.style.display = 'block';
+            
+        //     // Hide message after 5 seconds
+        //     setTimeout(() => {
+        //         statusMessage.style.display = 'none';
+        //     }, 5000);
+        //     })
+        //     .finally(function() {
+        //     // Reset button
+        //     submitBtn.innerHTML = originalText;
+        //     submitBtn.disabled = false;
+        //     });
+        // });
+        // },
+
+        // Setup material links error handling
+        setupMaterialLinks: function() {
+          const materialLinks = document.querySelectorAll('.material-link');
+          
+          materialLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+              // Add loading state
+              const icon = this.querySelector('i');
+              const originalClass = icon.className;
+              icon.className = 'fas fa-spinner fa-spin';
+              
+              // Check if file exists (basic check)
+              setTimeout(() => {
+                icon.className = originalClass;
+              }, 500);
+            });
+          });
+        },
+
+        // Setup intersection observer for animations
+        setupIntersectionObserver: function() {
+          if ('IntersectionObserver' in window) {
+            const observerOptions = {
+              threshold: 0.1,
+              rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                  entry.target.style.opacity = '1';
+                  entry.target.style.transform = 'translateY(0)';
+                }
+              });
+            }, observerOptions);
+
+            // Observe content cards
+            document.querySelectorAll('.content-card').forEach(card => {
+              card.style.opacity = '0';
+              card.style.transform = 'translateY(20px)';
+              card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+              observer.observe(card);
+            });
+          }
+        }
+      };
+
+      // Initialize when DOM is ready
+      document.addEventListener('DOMContentLoaded', function() {
+        performanceOptimizations.setupNavigation();
+        performanceOptimizations.setupContactForm();
+        performanceOptimizations.setupMaterialLinks();
+        performanceOptimizations.setupIntersectionObserver();
+      });
+
+      // Optimize scroll and resize
+      let ticking = false;
+      function updateScrollEffects() {
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(updateScrollEffects);
+          ticking = true;
+        }
+      });
+
+      window.addEventListener('resize', performanceOptimizations.debounce(() => {
+        // Handle any resize-specific optimizations
+      }, 250));
+    </script>
+  </body>
+</html>
