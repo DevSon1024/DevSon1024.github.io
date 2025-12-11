@@ -40,7 +40,7 @@ I’m currently pursuing BCA at **Udhna Citizen College**, under **Veer Narmad S
 ## 🤝 Let's Connect
 
 Got a project idea, collaboration offer, or just want to chat about anime, tech, or movies?  
-Reach me at **dpsonawane789@example.com** or DM on [Instagram/Twitter]([https://your-social-link.com](https://www.instagram.com/dev.s0nawane))
+Reach me at **dpsonawane789@example.com** or DM on [Instagram]([https://your-social-link.com](https://www.instagram.com/dev.s0nawane))
 
 ---
 
