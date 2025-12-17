@@ -13,6 +13,58 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
     <link rel="stylesheet" href="/style/projects.css">
+    
+    <style>
+        /* New Tag Styles */
+        .project-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            z-index: 10;
+        }
+
+        .badge-new {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.375rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 6px rgba(102, 126, 234, 0.3);
+            animation: pulse-badge 2s ease-in-out infinite;
+        }
+
+        .badge-latest {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 0.375rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 6px rgba(245, 87, 108, 0.3);
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 4px 6px rgba(102, 126, 234, 0.3);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 6px 8px rgba(102, 126, 234, 0.5);
+            }
+        }
+
+        .project-card {
+            position: relative;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -46,8 +98,43 @@
                 <h2 class="page-title" data-aos="fade-up">Featured Projects</h2>
                 
                 <div class="projects-grid">
+                    <!-- NEW: Tours and Travels Management System -->
+                    <div class="project-card performance-optimized" data-aos="fade-up" data-aos-delay="50" data-project-date="2025-12-17">
+                        <div class="project-badge">
+                            <span class="badge-new">New</span>
+                            <span class="badge-latest">Latest</span>
+                        </div>
+                        <div class="project-icon">
+                            <i class="fas fa-plane-departure" style="font-size: 3rem; color: #667eea;"></i>
+                        </div>
+                        <h3 class="project-title">Tours & Travels Management System</h3>
+                        <p class="project-description">
+                            A comprehensive web-based tour package management and booking platform built with CodeIgniter 4. 
+                            Features admin panel for package management, user authentication, booking system, and responsive design. 
+                            College minor project showcasing full-stack development skills.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">PHP 8.1+</span>
+                            <span class="tech-tag">CodeIgniter 4</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Bootstrap 5</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Full-Stack</span>
+                            <span class="tech-tag">2025</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/DevSon1024/tours-and-travels-php" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i>
+                                View on GitHub
+                            </a>
+                        </div>
+                    </div>
+
                     <!-- Flutter Project 1: Ragalahari Downloader -->
-                    <div class="project-card performance-optimized" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card performance-optimized" data-aos="fade-up" data-aos-delay="100" data-project-date="2025-01-01">
+                        <div class="project-badge">
+                            <span class="badge-new">New</span>
+                        </div>
                         <div class="project-icon">
                             <img src="../assets/ragalahari_downloader_icon.png" alt="Ragalahari Downloader">
                         </div>
@@ -72,7 +159,10 @@
                     </div>
 
                     <!-- Flutter Project 2: LinkNest -->
-                    <div class="project-card performance-optimized" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card performance-optimized" data-aos="fade-up" data-aos-delay="200" data-project-date="2025-01-01">
+                        <div class="project-badge">
+                            <span class="badge-new">New</span>
+                        </div>
                         <div class="project-icon">
                             <img src="../assets/LinkNest_icon.png" alt="LinkNest">
                         </div>
@@ -97,7 +187,7 @@
                     </div>
 
                     <!-- Python Project: Ragalahari Downloader 2024 -->
-                    <div class="project-card performance-optimized projects-grid-full" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-card performance-optimized projects-grid-full" data-aos="fade-up" data-aos-delay="300" data-project-date="2024-06-01">
                         <div class="project-icon">
                             <i class="fab fa-python"></i>
                         </div>
@@ -159,6 +249,31 @@
 
     <!-- Optimized Scripts -->
     <script>
+        // Auto-remove "New" tag after 2 months
+        function handleProjectBadges() {
+            const projectCards = document.querySelectorAll('.project-card[data-project-date]');
+            const twoMonthsInMs = 60 * 24 * 60 * 60 * 1000; // 60 days in milliseconds
+            
+            projectCards.forEach(card => {
+                const projectDate = new Date(card.getAttribute('data-project-date'));
+                const currentDate = new Date();
+                const daysDifference = Math.floor((currentDate - projectDate) / (24 * 60 * 60 * 1000));
+                
+                const newBadge = card.querySelector('.badge-new');
+                
+                // Remove "New" badge if project is older than 2 months (60 days)
+                if (daysDifference > 60 && newBadge) {
+                    newBadge.remove();
+                    
+                    // If no badges left, remove the badge container
+                    const badgeContainer = card.querySelector('.project-badge');
+                    if (badgeContainer && badgeContainer.children.length === 0) {
+                        badgeContainer.remove();
+                    }
+                }
+            });
+        }
+
         // Performance optimizations
         const performanceOptimizations = {
             // Debounce function for scroll events
@@ -260,6 +375,9 @@
 
         // Initialize optimizations when DOM is ready
         document.addEventListener('DOMContentLoaded', function() {
+            // Handle project badges first
+            handleProjectBadges();
+            
             performanceOptimizations.setupNavigation();
             performanceOptimizations.setupExternalLinks();
             performanceOptimizations.setupIntersectionObserver();
