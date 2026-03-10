@@ -24,16 +24,10 @@ I’m currently pursuing BCA at **Udhna Citizen College**, under **Veer Narmad S
 | **Simple File Organizer**| just run it and it will organize all files in their specific extension folder | Python |
 | *(More Projects Coming Soon)* | Learning + Building every day! | 🚧 |
 
-## 🖥️ Portfolio Website Features
-
-- Fully responsive design (mobile-first CSS)
-- Smooth navigation and clean UI
-- Projects, resume, contact form, and tech stack
-- GitHub-integrated project links
 
 ## 🔗 Links
 
-- 🌐 [Live Portfolio Website](https://devson1024.github.io) *(Update with your actual link)*
+- 🌐 [Live Portfolio Website](https://devson1024.github.io)
 - 🐱 [GitHub Profile](https://github.com/DevSon1024)
 - 📱 [LinkedIn]([https://linkedin.com/in/yourprofile](https://www.linkedin.com/in/devendra-sonawane-93763636a/))
 
@@ -41,8 +35,4 @@ I’m currently pursuing BCA at **Udhna Citizen College**, under **Veer Narmad S
 
 Got a project idea, collaboration offer, or just want to chat about anime, tech, or movies?  
 Reach me at **dpsonawane789@example.com** or DM on [Instagram]([https://your-social-link.com](https://www.instagram.com/dev.s0nawane))
-
----
-
-> *“Becoming a developer who knows at least 60% of everything” – That’s the goal I chase, every single day.*
 
