@@ -12,12 +12,12 @@ export default function Home() {
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: "spring", stiffness: 200, damping: 20 }}
-        className="relative w-32 h-32 mb-8"
+        className="relative w-45 h-45 mb-8"
       >
         <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-500 animate-pulse blur-md opacity-50"></div>
         <div className="relative w-full h-full rounded-full border-2 border-slate-700 overflow-hidden bg-slate-800">
           <Image
-            src="/assets/logo.png"
+            src="/assets/profile.png"
             alt="Devendra Sonawane"
             fill
             className="object-cover"
@@ -51,9 +51,21 @@ export default function Home() {
         transition={{ delay: 0.4, duration: 0.5 }}
         className="flex flex-wrap justify-center gap-4"
       >
-        <SocialLink href="https://github.com/DevSon1024" icon={<FaGithub />} label="GitHub" />
-        <SocialLink href="https://www.linkedin.com/in/devendra-sonawane-93763636a/" icon={<FaLinkedin />} label="LinkedIn" />
-        <SocialLink href="https://www.instagram.com/dev.s0nawane" icon={<FaInstagram />} label="Instagram" />
+        <SocialLink
+          href="https://github.com/DevSon1024"
+          icon={<FaGithub />}
+          label="GitHub"
+        />
+        <SocialLink
+          href="https://www.linkedin.com/in/devendra-sonawane-93763636a/"
+          icon={<FaLinkedin />}
+          label="LinkedIn"
+        />
+        <SocialLink
+          href="https://www.instagram.com/dev.s0nawane"
+          icon={<FaInstagram />}
+          label="Instagram"
+        />
       </motion.div>
 
       {/* Welcome Card */}
@@ -67,8 +79,9 @@ export default function Home() {
           Welcome to My Portfolio
         </h3>
         <p className="text-slate-300 leading-relaxed">
-          This is my personal portfolio website where I showcase my journey as a developer. 
-          Feel free to explore and learn more about my work, skills, and projects.
+          This is my personal portfolio website where I showcase my journey as a
+          developer. Feel free to explore and learn more about my work, skills,
+          and projects.
         </p>
       </motion.div>
     </div>
@@ -76,7 +89,15 @@ export default function Home() {
 }
 
 // Reusable component for the social buttons
-function SocialLink({ href, icon, label }: { href: string; icon: React.ReactNode; label: string }) {
+function SocialLink({
+  href,
+  icon,
+  label,
+}: {
+  href: string;
+  icon: React.ReactNode;
+  label: string;
+}) {
   return (
     <a
       href={href}
@@ -84,7 +105,9 @@ function SocialLink({ href, icon, label }: { href: string; icon: React.ReactNode
       rel="noopener noreferrer"
       className="flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-800/50 border border-slate-700 text-slate-300 hover:text-white hover:border-indigo-500 hover:bg-indigo-500/10 transition-all group"
     >
-      <span className="text-xl group-hover:scale-110 transition-transform">{icon}</span>
+      <span className="text-xl group-hover:scale-110 transition-transform">
+        {icon}
+      </span>
       <span className="font-medium">{label}</span>
     </a>
   );
