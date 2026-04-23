@@ -15,7 +15,7 @@ type Release = {
 
 async function getReleases(): Promise<Release[]> {
   const res = await fetch(
-    "https://api.github.com/repos/DevSon1024/Nosved-Player/releases",
+    "https://api.github.com/repos/DevSon1024/pixchive/releases",
     { next: { revalidate: 3600 } },
   );
   return res.ok ? res.json() : [];
@@ -151,14 +151,14 @@ export default async function NosvedPlayerPage() {
         {/* Header */}
         <div className="flex items-center gap-5">
           <Image
-            src="/assets/NosvedPlayer_icon.png"
-            alt="Nosved Player icon"
+            src="/assets/pixchive_icon.png"
+            alt="pixchive icon"
             width={88}
             height={88}
             className="rounded-[22px] shadow-lg ring-1 ring-black/10 dark:ring-white/10 shrink-0"
           />
           <div>
-            <h1 className="text-3xl font-bold tracking-tight">Nosved Player</h1>
+            <h1 className="text-3xl font-bold tracking-tight">PixChive</h1>
             <p className="text-zinc-500 dark:text-zinc-400 mt-0.5 text-sm">
               {latest.tag_name} &bull; {fmtDate(latest.published_at)}
             </p>

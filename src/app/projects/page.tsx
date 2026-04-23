@@ -47,6 +47,7 @@ const projects = [
     tech: ["Android", "Kotlin", "Jetpack Compose", "2026"],
     github: "https://github.com/DevSon1024/PixChive",
     uptodown: "https://pixchive.en.uptodown.com/android",
+    detailPage: "/projects/pixchive",
     date: "2026-03-01",
     isLatest: true,
     imageIcon: "/assets/PixChive_icon.png",
@@ -214,7 +215,6 @@ export default function Projects() {
                   className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-emerald-500/25 hover:-translate-y-0.5 transition-all w-fit"
                 >
                   <FaDownload className="text-xl" />
-                  Downloads
                 </Link>
               )}
               {project.uptodown && (
@@ -224,7 +224,11 @@ export default function Projects() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-500 to-cyan-500 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-emerald-500/25 hover:-translate-y-0.5 transition-all w-fit"
                 >
-                  <FaDownload className="text-xl" />
+                  <img
+                    src="https://stc.utdstc.com/img/mediakit/isotipo.png"
+                    alt="Uptodown"
+                    className="w-5 h-5 object-contain brightness-0 invert"
+                  />
                   Uptodown
                 </a>
               )}
