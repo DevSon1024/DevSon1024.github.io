@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import {
   FaGithub,
   FaLinkedin,
@@ -33,6 +34,7 @@ const projects = [
       "An advanced Android video player featuring hardware and software decoding (FFmpeg/ExoPlayer), gesture controls, and customizable interfaces.",
     tech: ["Android", "Kotlin", "Jetpack Compose", "ExoPlayer", "2026"],
     github: "https://github.com/DevSon1024/Nosved-Player",
+    detailPage: "/projects/nosved-player",
     date: "2026-04-10",
     isLatest: true,
     imageIcon: "/assets/NosvedPlayer_icon.png",
@@ -206,6 +208,15 @@ export default function Projects() {
                 <FaGithub className="text-xl" />
                 GitHub
               </a>
+              {(project as any).detailPage && (
+                <Link
+                  href={(project as any).detailPage}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-emerald-500/25 hover:-translate-y-0.5 transition-all w-fit"
+                >
+                  <FaDownload className="text-xl" />
+                  Downloads
+                </Link>
+              )}
               {project.uptodown && (
                 <a
                   href={project.uptodown}
