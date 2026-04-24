@@ -29,10 +29,10 @@ I’m currently pursuing BCA at **Udhna Citizen College**, under **Veer Narmad S
 
 - 🌐 [Live Portfolio Website](https://devson1024.github.io)
 - 🐱 [GitHub Profile](https://github.com/DevSon1024)
-- 📱 [LinkedIn]([https://linkedin.com/in/yourprofile](https://www.linkedin.com/in/devendra-sonawane-93763636a/))
+- 📱 [LinkedIn](https://www.linkedin.com/in/devendra-sonawane-93763636a/)
 
 ## 🤝 Let's Connect
 
 Got a project idea, collaboration offer, or just want to chat about anime, tech, or movies?  
-Reach me at **dpsonawane789@example.com** or DM on [Instagram]([https://your-social-link.com](https://www.instagram.com/dev.s0nawane))
+Reach me at **dpsonawane789@gmail.com** or DM on [Instagram]([https://your-social-link.com](https://www.instagram.com/dev.s0nawane))
 
