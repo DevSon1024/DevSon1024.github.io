@@ -8,6 +8,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Devendra Sonawane - Portfolio",
   description: "Web Developer and Android Enthusiast",
+  verification: {
+    google: "iuYF0W1QytrOB7WKPn_z3vef5AJIPVutp9M3IDh8Ugo",
+  },
 };
 
 export default function RootLayout({
