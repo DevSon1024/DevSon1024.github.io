@@ -1,12 +1,470 @@
 @import "tailwindcss";
 
+@theme {
+  --color-brand-bg: #05070f;
+  --color-brand-indigo: #6366f1;
+  --color-brand-violet: #a855f7;
+  --color-brand-amber: #f59e0b;
+  --color-glass-bg: rgba(255, 255, 255, 0.03);
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+}
+
 :root {
-  --background: #0f172a;
-  --foreground: #e2e8f0;
+  --background: #05070f;
+  --foreground: #f8fafc;
+  --grid-color: rgba(99, 102, 241, 0.03);
+}
+
+/* Light Theme Variables */
+html.light {
+  --background: #f4f6fa;
+  --foreground: #0f172a;
+  --grid-color: rgba(99, 102, 241, 0.05);
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
   overflow-x: hidden;
+  position: relative;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+  border: 2px solid var(--background);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4f46e5;
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #6366f1;
+}
+
+/* Glassmorphic Bento Cards */
+.glass-card {
+  background: rgba(10, 15, 30, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  border-radius: 1.5rem;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glass-card:hover {
+  border-color: rgba(99, 102, 241, 0.45);
+  box-shadow: 0 0 35px rgba(99, 102, 241, 0.15);
+  transform: translateY(-4px);
+}
+
+/* Light Mode Card Overrides */
+html.light .glass-card {
+  background: rgba(255, 255, 255, 0.65);
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.06);
+}
+
+html.light .glass-card::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+html.light .glass-card:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 15px 45px -10px rgba(99, 102, 241, 0.15);
+}
+
+/* Glow highlights */
+.glow-card-indigo:hover {
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.2);
+}
+
+.glow-card-violet:hover {
+  border-color: rgba(168, 85, 247, 0.5);
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.2);
+}
+
+.glow-card-amber:hover {
+  border-color: rgba(245, 158, 11, 0.5);
+  box-shadow: 0 0 30px rgba(245, 158, 11, 0.2);
+}
+
+html.light .glow-card-indigo:hover {
+  border-color: rgba(99, 102, 241, 0.6);
+  box-shadow: 0 15px 40px -10px rgba(99, 102, 241, 0.2);
+}
+
+html.light .glow-card-violet:hover {
+  border-color: rgba(168, 85, 247, 0.6);
+  box-shadow: 0 15px 40px -10px rgba(168, 85, 247, 0.2);
+}
+
+html.light .glow-card-amber:hover {
+  border-color: rgba(245, 158, 11, 0.6);
+  box-shadow: 0 15px 40px -10px rgba(245, 158, 11, 0.2);
+}
+
+/* Custom background animations */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.15);
+  }
+}
+
+.bg-radial-glow {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  border-radius: 9999px;
+  filter: blur(150px);
+  pointer-events: none;
+  z-index: -10;
+  animation: pulse-glow 15s infinite ease-in-out;
+  opacity: 0.25;
+  transition: opacity 0.5s ease;
+}
+
+html.light .bg-radial-glow {
+  opacity: 0.12;
+}
+
+/* Background grid pattern */
+.bg-grid-pattern {
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: -20;
+  transition: background-image 0.3s ease;
+}
+
+/* Theme Circular Expansion Ripple Overlay */
+.theme-ripple-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  background-color: var(--background-target);
+  clip-path: circle(0px at var(--ripple-x) var(--ripple-y));
+  animation: theme-ripple-expand 0.75s cubic-bezier(0.86, 0, 0.07, 1) forwards;
+}
+
+@keyframes theme-ripple-expand {
+  to {
+    clip-path: circle(150vmax at var(--ripple-x) var(--ripple-y));
+  }
+}
+
+/* Light Theme High Contrast Overrides */
+html.light .text-slate-100 { color: #0f172a !important; }
+html.light .text-slate-200 { color: #1e293b !important; }
+html.light .text-slate-300 { color: #334155 !important; }
+html.light .text-slate-400 { color: #475569 !important; }
+html.light .text-slate-500 { color: #5b6e85 !important; }
+
+/* Gradient text fallbacks for headings in light mode */
+html.light .text-transparent.bg-clip-text.bg-gradient-to-r {
+  color: #4f46e5 !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+}
+
+/* Brand text colors */
+html.light .text-indigo-300,
+html.light .text-indigo-400 {
+  color: #4f46e5 !important;
+}
+
+html.light .text-purple-400,
+html.light .text-violet-400,
+html.light .text-violet-300 {
+  color: #7c3aed !important;
+}
+
+html.light .text-amber-400,
+html.light .text-amber-300 {
+  color: #d97706 !important;
+}
+
+html.light .text-emerald-400 {
+  color: #059669 !important;
+}
+
+html.light .text-rose-400 {
+  color: #e11d48 !important;
+}
+
+html.light .text-blue-400 {
+  color: #2563eb !important;
+}
+
+/* Badge and Pill Background overrides */
+html.light .bg-slate-950\/40,
+html.light .bg-slate-950\/45,
+html.light .bg-slate-950\/50,
+html.light .bg-slate-950\/60,
+html.light .bg-slate-950\/65,
+html.light .bg-slate-900\/45,
+html.light .bg-slate-900\/50,
+html.light .bg-slate-900\/60,
+html.light .bg-slate-900,
+html.light .bg-white\/5,
+html.light .bg-white\/10 {
+  background-color: rgba(15, 23, 42, 0.05) !important;
+  color: #1e293b !important;
+}
+
+/* Interactive Pill Badges */
+html.light .bg-indigo-500\/10 { background-color: rgba(99, 102, 241, 0.08) !important; }
+html.light .bg-purple-500\/10 { background-color: rgba(168, 85, 247, 0.08) !important; }
+html.light .bg-amber-500\/10 { background-color: rgba(245, 158, 11, 0.08) !important; }
+html.light .bg-emerald-500\/10 { background-color: rgba(16, 185, 129, 0.08) !important; }
+
+/* Specific borders */
+html.light .border-white\/5,
+html.light .border-white\/10,
+html.light .border-white\/20,
+html.light .border-slate-700,
+html.light .border-slate-700\/50,
+html.light .border-slate-800 {
+  border-color: rgba(15, 23, 42, 0.09) !important;
+}
+
+/* Timeline line */
+html.light .border-l.border-slate-800 {
+  border-color: rgba(15, 23, 42, 0.12) !important;
+}
+
+/* Technical Directory Badges */
+html.light .bg-slate-950\/40 span.text-slate-200 {
+  color: #0f172a !important;
+}
+
+/* Main buttons */
+html.light .bg-slate-900.border.border-slate-700\/60 {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #334155 !important;
+}
+html.light .bg-slate-900.border.border-slate-700\/60:hover {
+  background-color: #f8fafc !important;
+  border-color: #6366f1 !important;
+  color: #0f172a !important;
+}
+
+/* Study materials & direct contact icons */
+html.light .bg-slate-900.border.border-slate-800 {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+/* Form Inputs */
+html.light input, 
+html.light textarea {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  border-color: rgba(15, 23, 42, 0.15) !important;
+  color: #0f172a !important;
+}
+html.light input:focus, 
+html.light textarea:focus {
+  border-color: #6366f1 !important;
+}
+
+/* Terminal log overrides */
+html.light .bg-slate-950\/40.border-b {
+  background-color: #f8fafc !important;
+}
+html.light span.text-slate-500 {
+  color: #64748b !important;
+}
+html.light .bg-slate-950\/40.rounded-2xl {
+  background-color: #ffffff !important;
+}
+html.light .text-indigo-400.animate-pulse {
+  color: #4f46e5 !important;
+}
+
+/* Custom Contact Cards and Icons */
+.contact-card-custom {
+  background: rgba(10, 15, 30, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.3s ease;
+}
+
+html.light .contact-card-custom {
+  background: rgba(255, 255, 255, 0.65) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.06) !important;
+}
+
+.contact-icon-custom {
+  background-color: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+html.light .contact-icon-custom {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+/* Markdown Light Mode Overrides */
+html.light .markdown-p,
+html.light .markdown-li,
+html.light .markdown-ul,
+html.light .markdown-ol {
+  color: #334155 !important;
+}
+html.light .markdown-h1,
+html.light .markdown-strong {
+  color: #0f172a !important;
+}
+html.light .markdown-h2 {
+  color: #1e293b !important;
+}
+html.light .markdown-h3 {
+  color: #334155 !important;
+}
+html.light .markdown-blockquote {
+  color: #475569 !important;
+  border-color: #cbd5e1 !important;
+}
+html.light .markdown-a {
+  color: #2563eb !important;
+}
+html.light .markdown-a:hover {
+  color: #1d4ed8 !important;
+}
+html.light .markdown-code {
+  background-color: #f1f5f9 !important;
+  color: #db2777 !important;
+}
+html.light .markdown-code-block {
+  background-color: #f8fafc !important;
+  color: #16a34a !important;
+  border: 1px solid #e2e8f0 !important;
+}
+html.light .markdown-hr {
+  border-color: #e2e8f0 !important;
+}
+
+/* Variant Download Cards in Light Mode */
+html.light .variant-card-blue {
+  background-color: rgba(59, 130, 246, 0.08) !important;
+  border-color: rgba(59, 130, 246, 0.25) !important;
+}
+html.light .variant-card-blue:hover {
+  background-color: rgba(59, 130, 246, 0.12) !important;
+  border-color: rgba(59, 130, 246, 0.45) !important;
+}
+html.light .variant-label-blue,
+html.light .variant-icon-blue {
+  color: #1d4ed8 !important;
+}
+html.light .variant-sub-blue {
+  color: #1e40af !important;
+  opacity: 0.75 !important;
+}
+
+html.light .variant-card-violet {
+  background-color: rgba(168, 85, 247, 0.08) !important;
+  border-color: rgba(168, 85, 247, 0.25) !important;
+}
+html.light .variant-card-violet:hover {
+  background-color: rgba(168, 85, 247, 0.12) !important;
+  border-color: rgba(168, 85, 247, 0.45) !important;
+}
+html.light .variant-label-violet,
+html.light .variant-icon-violet {
+  color: #7c3aed !important;
+}
+html.light .variant-sub-violet {
+  color: #6d28d9 !important;
+  opacity: 0.75 !important;
+}
+
+html.light .variant-card-amber {
+  background-color: rgba(245, 158, 11, 0.08) !important;
+  border-color: rgba(245, 158, 11, 0.25) !important;
+}
+html.light .variant-card-amber:hover {
+  background-color: rgba(245, 158, 11, 0.12) !important;
+  border-color: rgba(245, 158, 11, 0.45) !important;
+}
+html.light .variant-label-amber,
+html.light .variant-icon-amber {
+  color: #b45309 !important;
+}
+html.light .variant-sub-amber {
+  color: #78350f !important;
+  opacity: 0.75 !important;
+}
+
+html.light .variant-card-zinc {
+  background-color: rgba(15, 23, 42, 0.05) !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+}
+html.light .variant-card-zinc:hover {
+  background-color: rgba(15, 23, 42, 0.08) !important;
+  border-color: rgba(15, 23, 42, 0.25) !important;
+}
+html.light .variant-label-zinc,
+html.light .variant-icon-zinc {
+  color: #1e293b !important;
+}
+html.light .variant-sub-zinc {
+  color: #475569 !important;
+}
+
+/* Older Releases list item hover override */
+html.light .divide-y.divide-white\/5 li:hover {
+  background-color: rgba(15, 23, 42, 0.03) !important;
 }

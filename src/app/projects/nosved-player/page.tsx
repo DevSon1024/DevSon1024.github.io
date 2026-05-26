@@ -34,7 +34,7 @@ const fmtDate = (d: string) =>
 
 const DownloadIcon = () => (
   <svg
-    className="w-4 h-4 shrink-0"
+    className="w-5 h-5 shrink-0"
     fill="none"
     stroke="currentColor"
     viewBox="0 0 24 24"
@@ -42,7 +42,7 @@ const DownloadIcon = () => (
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
-      strokeWidth={2}
+      strokeWidth={2.5}
       d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
     />
   </svg>
@@ -84,28 +84,28 @@ const VARIANTS: Variant[] = [
 
 const colorMap = {
   blue: {
-    card: "bg-blue-50 dark:bg-blue-950/50 ring-blue-200 dark:ring-blue-800 hover:bg-blue-100 dark:hover:bg-blue-900/60",
-    label: "text-blue-700 dark:text-blue-300",
-    sub: "text-blue-600/70 dark:text-blue-400/70",
-    icon: "text-blue-600 dark:text-blue-400",
+    card: "bg-blue-500/5 border border-blue-500/20 hover:border-blue-500/40 hover:bg-blue-500/10 shadow-[0_0_15px_rgba(59,130,246,0.1)]",
+    label: "text-blue-300",
+    sub: "text-blue-400/60",
+    icon: "text-blue-400",
   },
   violet: {
-    card: "bg-violet-50 dark:bg-violet-950/50 ring-violet-200 dark:ring-violet-800 hover:bg-violet-100 dark:hover:bg-violet-900/60",
-    label: "text-violet-700 dark:text-violet-300",
-    sub: "text-violet-600/70 dark:text-violet-400/70",
-    icon: "text-violet-600 dark:text-violet-400",
+    card: "bg-violet-500/5 border border-violet-500/20 hover:border-violet-500/40 hover:bg-violet-500/10 shadow-[0_0_15px_rgba(168,85,247,0.1)]",
+    label: "text-violet-300",
+    sub: "text-violet-400/60",
+    icon: "text-violet-400",
   },
   amber: {
-    card: "bg-amber-50 dark:bg-amber-950/50 ring-amber-200 dark:ring-amber-800 hover:bg-amber-100 dark:hover:bg-amber-900/60",
-    label: "text-amber-700 dark:text-amber-300",
-    sub: "text-amber-600/70 dark:text-amber-400/70",
-    icon: "text-amber-600 dark:text-amber-400",
+    card: "bg-amber-500/5 border border-amber-500/20 hover:border-amber-500/40 hover:bg-amber-500/10 shadow-[0_0_15px_rgba(245,158,11,0.1)]",
+    label: "text-amber-300",
+    sub: "text-amber-400/60",
+    icon: "text-amber-400",
   },
   zinc: {
-    card: "bg-zinc-100 dark:bg-zinc-800/60 ring-zinc-200 dark:ring-zinc-700 hover:bg-zinc-200 dark:hover:bg-zinc-700/60",
-    label: "text-zinc-800 dark:text-zinc-200",
-    sub: "text-zinc-500 dark:text-zinc-400",
-    icon: "text-zinc-500 dark:text-zinc-400",
+    card: "bg-slate-900/45 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900/60 shadow-md",
+    label: "text-slate-200",
+    sub: "text-slate-400",
+    icon: "text-slate-400",
   },
 };
 
@@ -114,8 +114,8 @@ export default async function NosvedPlayerPage() {
 
   if (!releases.length) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-zinc-950">
-        <p className="text-zinc-500 dark:text-zinc-400">
+      <div className="min-h-screen flex items-center justify-center bg-brand-bg">
+        <p className="text-slate-400 font-mono text-sm">
           No releases found or API limit reached.
         </p>
       </div>
@@ -125,12 +125,12 @@ export default async function NosvedPlayerPage() {
   const [latest, ...older] = releases;
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100">
-      <div className="max-w-3xl mx-auto px-4 py-10 space-y-8">
-        {/* Back */}
+    <div className="min-h-screen text-slate-200 py-6">
+      <div className="max-w-4xl mx-auto px-4 py-6 space-y-8">
+        {/* Back Link */}
         <Link
           href="/projects"
-          className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
+          className="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-400 hover:text-indigo-300 transition-colors"
         >
           <svg
             className="w-4 h-4"
@@ -141,42 +141,44 @@ export default async function NosvedPlayerPage() {
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth={2}
+              strokeWidth={2.5}
               d="M15 19l-7-7 7-7"
             />
           </svg>
-          Projects
+          Back to Projects
         </Link>
 
-        {/* Header */}
-        <div className="flex items-center gap-5">
-          <Image
-            src="/assets/NosvedPlayer_icon.png"
-            alt="Nosved Player icon"
-            width={88}
-            height={88}
-            className="rounded-[22px] shadow-lg ring-1 ring-black/10 dark:ring-white/10 shrink-0"
-          />
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight">Nosved Player</h1>
-            <p className="text-zinc-500 dark:text-zinc-400 mt-0.5 text-sm">
-              {latest.tag_name} &bull; {fmtDate(latest.published_at)}
+        {/* Header Block */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 glass-card glow-card-indigo p-8">
+          <div className="relative w-20 h-20 rounded-2xl overflow-hidden bg-slate-900 border border-slate-700 shadow-xl shrink-0">
+            <Image
+              src="/assets/NosvedPlayer_icon.png"
+              alt="Nosved Player icon"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="space-y-1.5">
+            <h1 className="text-3xl font-extrabold tracking-tight text-slate-100">Nosved Player</h1>
+            <p className="text-slate-400 font-mono text-xs">
+              TAG: {latest.tag_name} &bull; RELEASED: {fmtDate(latest.published_at)}
             </p>
-            <span className="mt-2 inline-block text-xs font-semibold px-2.5 py-0.5 rounded-full bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-400 ring-1 ring-green-200 dark:ring-green-800">
+            <span className="inline-block text-[10px] font-bold tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 animate-pulse">
               Latest Release
             </span>
           </div>
         </div>
 
-        {/* Download Latest */}
-        <section className="rounded-2xl bg-white dark:bg-zinc-900 ring-1 ring-zinc-200 dark:ring-zinc-800 shadow-sm overflow-hidden">
-          <div className="px-6 pt-5 pb-2">
-            <h2 className="text-lg font-semibold">Download Latest</h2>
-            <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
-              Choose the variant for your device
+        {/* Download Latest Variants */}
+        <section className="glass-card glow-card-indigo p-8 space-y-6">
+          <div>
+            <h2 className="text-lg font-bold text-slate-100">Download Latest Release</h2>
+            <p className="text-xs font-mono text-slate-400 mt-1">
+              Select the appropriate APK architecture for your device.
             </p>
           </div>
-          <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {VARIANTS.map(({ keyword, label, sub, color }) => {
               const asset = getAsset(latest.assets, keyword);
               if (!asset) return null;
@@ -185,24 +187,25 @@ export default async function NosvedPlayerPage() {
                 <a
                   key={keyword}
                   href={asset.browser_download_url}
-                  className={`group flex items-center justify-between gap-3 p-4 rounded-xl ring-1 transition-all ${c.card}`}
+                  className={`group flex items-center justify-between gap-4 p-5 rounded-2xl transition-all duration-300 cursor-pointer variant-card-${color} ${c.card}`}
                 >
-                  <div>
-                    <div className={`font-semibold text-sm ${c.label}`}>
+                  <div className="space-y-0.5">
+                    <div className={`font-bold text-sm variant-label-${color} ${c.label}`}>
                       {label}
                     </div>
-                    <div className={`text-xs mt-0.5 ${c.sub}`}>
+                    <div className={`text-xs font-mono variant-sub-${color} ${c.sub}`}>
                       {sub} &bull; {fmtSize(asset.size)}
                     </div>
                   </div>
                   <span
-                    className={`group-hover:translate-y-0.5 transition-transform ${c.icon}`}
+                    className={`group-hover:translate-y-0.5 transition-transform duration-300 variant-icon-${color} ${c.icon}`}
                   >
                     <DownloadIcon />
                   </span>
                 </a>
               );
             })}
+            
             {/* Fallback if no assets matched */}
             {VARIANTS.every(
               ({ keyword }) => !getAsset(latest.assets, keyword),
@@ -211,24 +214,24 @@ export default async function NosvedPlayerPage() {
                 href={latest.html_url}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-between gap-3 p-4 rounded-xl bg-zinc-100 dark:bg-zinc-800 ring-1 ring-zinc-200 dark:ring-zinc-700 col-span-2 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-all"
+                className="flex items-center justify-between gap-4 p-5 rounded-2xl bg-slate-900 border border-white/5 hover:border-indigo-500/30 transition-all col-span-2 text-slate-300"
               >
-                <span className="font-medium text-sm">View on GitHub</span>
+                <span className="font-semibold text-sm">View Source & Download on GitHub</span>
                 <DownloadIcon />
               </a>
             )}
           </div>
         </section>
 
-        {/* Changelog */}
-        <section className="rounded-2xl bg-white dark:bg-zinc-900 ring-1 ring-zinc-200 dark:ring-zinc-800 shadow-sm p-6">
-          <h2 className="text-lg font-semibold mb-3">What&apos;s Changed</h2>
-          <div className="bg-zinc-50 dark:bg-zinc-950/60 rounded-xl ring-1 ring-zinc-100 dark:ring-zinc-800 p-4 max-h-[28rem] overflow-y-auto">
+        {/* Changelog section */}
+        <section className="glass-card glow-card-indigo p-8 space-y-4">
+          <h2 className="text-lg font-bold text-slate-100">What&apos;s Changed</h2>
+          <div className="bg-slate-950/40 rounded-2xl border border-white/5 p-6 max-h-[30rem] overflow-y-auto font-mono text-sm leading-relaxed text-slate-300">
             {latest.body?.trim() ? (
               <Markdown>{latest.body}</Markdown>
             ) : (
-              <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                No release notes provided.
+              <p className="text-xs text-slate-500">
+                No release log notes provided.
               </p>
             )}
           </div>
@@ -236,11 +239,11 @@ export default async function NosvedPlayerPage() {
 
         {/* Older Versions */}
         {older.length > 0 && (
-          <section className="rounded-2xl bg-white dark:bg-zinc-900 ring-1 ring-zinc-200 dark:ring-zinc-800 shadow-sm overflow-hidden">
-            <div className="px-6 pt-5 pb-3">
-              <h2 className="text-lg font-semibold">Older Versions</h2>
+          <section className="glass-card glow-card-indigo overflow-hidden">
+            <div className="px-8 py-5 border-b border-white/5">
+              <h2 className="text-lg font-bold text-slate-100">Older Releases</h2>
             </div>
-            <ul className="divide-y divide-zinc-100 dark:divide-zinc-800">
+            <ul className="divide-y divide-white/5">
               {older.map((r) => {
                 const link =
                   getAsset(r.assets, "arm64-v8a")?.browser_download_url ??
@@ -250,22 +253,21 @@ export default async function NosvedPlayerPage() {
                 return (
                   <li
                     key={r.id}
-                    className="flex items-center justify-between px-6 py-3.5 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors"
+                    className="flex items-center justify-between px-8 py-4.5 hover:bg-white/5 transition-colors"
                   >
-                    <div>
-                      <div className="font-mono text-sm font-medium">
+                    <div className="space-y-0.5">
+                      <div className="font-mono text-sm font-bold text-slate-200">
                         {r.tag_name}
                       </div>
-                      <div className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
-                        {fmtDate(r.published_at)}
+                      <div className="text-xs font-mono text-slate-500">
+                        Released: {fmtDate(r.published_at)}
                       </div>
                     </div>
                     <a
                       href={link}
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 ring-1 ring-zinc-200 dark:ring-zinc-700 transition-colors"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs font-semibold hover:border-indigo-500/30 text-indigo-400 hover:text-indigo-300 transition-all"
                     >
-                      <DownloadIcon />
-                      Download
+                      <DownloadIcon /> Download
                     </a>
                   </li>
                 );
