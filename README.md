@@ -1,38 +1,56 @@
-# 💻 Devson's Portfolio Website
+# Devendra Sonawane - Portfolio Website
 
-Welcome to my portfolio website repository! I'm **Devendra Sonawane**, a passionate coding student from Surat, India with a deep interest in **Python web development, app development, and building creative projects**. I love learning by doing and aim to become a versatile developer skilled across multiple domains.
+Welcome to the repository for my personal portfolio. I am Devendra Sonawane, a Frontend Developer and Android Enthusiast based in Surat, Gujarat, India. I specialize in building responsive, performant web applications and mobile projects, combining modern technologies with clean state architecture.
 
-## 🚀 About Me
+## About Me
 
-I’m currently pursuing BCA at **Udhna Citizen College**, under **Veer Narmad South Gujarat University**. I'm a fast learner and tech explorer with a flair for blending code with creativity. Anime, movies, and real-world problems inspire my project ideas.
+I recently graduated with a Bachelor of Computer Applications (BCA) from Veer Narmad South Gujarat University (VNSGU). During my studies and through practical experience—including a 3-month Frontend Developer Internship—I have focused on writing clean, modular code and optimizing student portals, ERP integrations, and media players.
 
-## 🧠 Skills
+## Core Technical Skills
 
-- 💡 **Languages**: Python, Dart (Flutter), JavaScript, HTML, CSS
-- 🧱 **Frameworks**: Flutter, Flask (in progress)
-- 📱 **Mobile Development**: Flutter (Android)
-- 🌐 **Web Development**: Mobile-first approach, responsive UI, modern design
-- 🛠️ **Tools**: Git, GitHub, VS Code, Firebase (basic)
-- 🧪 **Learning Focus**: Automation, scraping, performance optimization
+* **Languages & Markup:** JavaScript (ES6+), HTML5, CSS3, Python, Dart
+* **Frameworks & Libraries:** React.js, Tailwind CSS, Next.js, Flutter
+* **Databases:** MongoDB, MySQL
+* **Tools & Systems:** Git, GitHub, Figma, VS Code, DevTools
+* **Key Areas:** Responsive Web & Mobile Design, REST API Integration, Performance Optimization, Basic Automation
 
-## 📂 Projects
+## Professional Experience
 
-| Project | Description | Stack |
-|--------|-------------|-------|
-| **LinkNest** | Save and organize shared links with previews, categories, and import/export support | Flutter, Dart |
-| **Ragalahari Downloader** | Can Download Imgage Galleries of celebrities in one click | Flutter, Dart |
-| **Simple File Organizer**| just run it and it will organize all files in their specific extension folder | Python |
-| *(More Projects Coming Soon)* | Learning + Building every day! | 🚧 |
+### Frontend Developer Intern // CareerSahi Edtech Pvt. Ltd. (3 Months)
+* Engineered reusable UI components utilizing React.js and Tailwind CSS.
+* Partnered with design and backend teams to integrate REST API layers into the client application.
+* Optimized page rendering, asset loading, and cross-browser compatibility across primary product paths.
+* Managed project source repositories using Git, adhering to team-based feature-branch workflows.
 
+## Key Projects
 
-## 🔗 Links
+### Smart Institute (MERN Stack)
+* Migrated a legacy .NET enterprise ERP system to a modern MERN (MongoDB, Express, React, Node.js) stack.
+* Built the student dashboard and transactional logic from scratch.
+* Implemented React lazy loading, API rate limiting, and debouncing to secure and speed up the client application.
+* Integrated Cloudinary for dynamic image optimization/hosting and deployed the full system to Hostinger.
 
-- 🌐 [Live Portfolio Website](https://devson1024.github.io)
-- 🐱 [GitHub Profile](https://github.com/DevSon1024)
-- 📱 [LinkedIn](https://www.linkedin.com/in/devendra-sonawane-93763636a/)
+### Movie Ticket Booking System (MERN Stack)
+* Developed an end-to-end user flow for a digital ticketing platform inspired by BookMyShow.
+* Configured Redux to manage global application state and designed a verified user review rating badge.
+* Directed a 3-person development team, coordinating debugging tasks and code reviews.
 
-## 🤝 Let's Connect
+### Nosved Player (Android / Kotlin)
+* Built a high-performance native media player for Android using ExoPlayer and FFmpeg libraries.
+* Programmed hardware/software video decoding selections and custom gesture controls.
 
-Got a project idea, collaboration offer, or just want to chat about anime, tech, or movies?  
-Reach me at **dpsonawane789@gmail.com** or DM on [Instagram]([https://your-social-link.com](https://www.instagram.com/dev.s0nawane))
+### File Organizer Script (Python)
+* Wrote a click-to-run automation script leveraging python's built-in `os` and `shutil` libraries to automatically sort local files into directories organized by file extensions.
 
+## Links
+
+* [Live Portfolio](https://devson1024.github.io)
+* [GitHub Profile](https://github.com/DevSon1024)
+* [LinkedIn Node](https://www.linkedin.com/in/devson1024/)
+
+## Contact & Connect
+
+If you would like to discuss web/mobile development, collaboration opportunities, or technical solutions, feel free to reach out:
+
+* **Email:** dpsonawane789@gmail.com
+* **LinkedIn:** [devson1024](https://www.linkedin.com/in/devson1024/)

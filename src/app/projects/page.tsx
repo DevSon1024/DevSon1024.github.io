@@ -13,6 +13,7 @@ import {
   FaCode,
   FaDownload,
   FaArrowRight,
+  FaLaptopCode,
 } from "react-icons/fa";
 
 // Project data
@@ -43,6 +44,32 @@ const projects = [
     isLatest: true,
     category: "Android",
     imageIcon: "/assets/PixChive_icon.png",
+  },
+  {
+    id: 8,
+    title: "Smart Institute",
+    description:
+      "A student management ERP system migrated from .NET to MERN stack. Designed robust student portal logic, integrated Cloudinary for image optimization, and optimized with lazy loading, API rate limiting, and debouncing.",
+    tech: ["MongoDB", "Express.js", "React.js", "Node.js", "Cloudinary", "Hostinger"],
+    github: "https://github.com/DevSon1024/education-erp",
+    demo: "https://smartinstituteonline.com",
+    date: "2026-03-20",
+    isLatest: true,
+    category: "Web",
+    icon: <FaLaptopCode className="text-3xl text-purple-500" />,
+  },
+  {
+    id: 9,
+    title: "Movie Ticket Booking System",
+    description:
+      "An end-to-end ticketing platform inspired by BookMyShow. Programmed custom seat booking arrays, verified user review badge system, and incorporated Redux for global state management.",
+    tech: ["MongoDB", "Express.js", "React.js", "Node.js", "Redux", "Tailwind CSS"],
+    github: "https://github.com/DevSon1024/movie-booking-platform",
+    demo: "https://movie-ticket-booking-devson1024.netlify.app",
+    date: "2026-02-15",
+    isLatest: true,
+    category: "Web",
+    icon: <FaCode className="text-3xl text-indigo-500" />,
   },
   {
     id: 3,
@@ -252,6 +279,17 @@ export default function Projects() {
                 >
                   <FaGithub className="text-base" /> GitHub
                 </a>
+
+                {project.demo && (
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white text-sm font-bold shadow-[0_4px_15px_rgba(99,102,241,0.15)] hover:shadow-[0_4px_20px_rgba(99,102,241,0.35)] transition-all duration-300 hover:-translate-y-0.5"
+                  >
+                    Live Demo <FaArrowRight className="text-xs" />
+                  </a>
+                )}
 
                 {project.detailPage && (
                   <Link

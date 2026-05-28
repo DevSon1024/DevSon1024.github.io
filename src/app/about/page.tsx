@@ -48,15 +48,33 @@ export default function About() {
             <div className="w-10 h-10 bg-indigo-500/10 border border-indigo-500/30 rounded-xl flex items-center justify-center text-indigo-400 text-lg shadow-md">
               <FaGraduationCap />
             </div>
-            <h2 className="text-xl font-bold text-slate-100">Education Timeline</h2>
+            <h2 className="text-xl font-bold text-slate-100">Experience & Education</h2>
           </div>
 
           <div className="relative pl-8 border-l border-slate-800 space-y-10 my-2">
-            {/* Timeline Item 1 */}
+            {/* Timeline Item: Internship */}
             <div className="relative">
               {/* Timeline Indicator Node */}
               <div className="absolute -left-[38px] top-1.5 flex items-center justify-center">
-                <span className="w-4 h-4 rounded-full bg-indigo-500 ring-4 ring-indigo-500/20 shadow-[0_0_10px_rgba(99,102,241,0.5)]"></span>
+                <span className="w-4 h-4 rounded-full bg-emerald-500 ring-4 ring-emerald-500/20 shadow-[0_0_10px_rgba(16,185,129,0.5)]"></span>
+              </div>
+              <span className="text-xs font-mono font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded">
+                Internship // 3 Months
+              </span>
+              <h4 className="text-slate-100 font-bold text-lg mt-3">Frontend Developer Intern</h4>
+              <p className="text-slate-300 text-sm font-medium mt-1">CareerSahi Edtech Pvt. Ltd.</p>
+              <ul className="text-slate-400 text-xs mt-2 space-y-1.5 list-disc list-inside font-sans">
+                <li>Engineered reusable UI components using React.js + Tailwind CSS.</li>
+                <li>Collaborated to integrate REST API layers into the client application.</li>
+                <li>Optimized rendering efficiency and cross-browser compatibility.</li>
+              </ul>
+            </div>
+
+            {/* Timeline Item 1 */}
+            <div className="relative opacity-90 hover:opacity-100 transition-opacity">
+              {/* Timeline Indicator Node */}
+              <div className="absolute -left-[38px] top-1.5 flex items-center justify-center">
+                <span className="w-3.5 h-3.5 rounded-full bg-indigo-500 ring-4 ring-indigo-500/20 shadow-[0_0_10px_rgba(99,102,241,0.5)]"></span>
               </div>
               <span className="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 px-2 py-0.5 rounded">
                 2023 - 2026

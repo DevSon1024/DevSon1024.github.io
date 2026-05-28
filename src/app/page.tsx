@@ -134,7 +134,7 @@ export default function Home() {
             <h3 className="font-mono text-xs tracking-widest text-amber-400 font-bold uppercase mb-4">SYSTEM STATS</h3>
             <div className="space-y-6">
               <div className="flex items-baseline gap-3">
-                <span className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-400 drop-shadow-[0_0_15px_rgba(245,158,11,0.2)]">07+</span>
+                <span className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-400 drop-shadow-[0_0_15px_rgba(245,158,11,0.2)]">09+</span>
                 <span className="text-slate-400 font-mono text-xs">ACTIVE PROJECTS</span>
               </div>
               <div className="flex items-baseline gap-3">

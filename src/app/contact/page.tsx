@@ -2,12 +2,24 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaEnvelope, FaLinkedin, FaGithub, FaPaperPlane, FaCheckCircle } from "react-icons/fa";
+import {
+  FaEnvelope,
+  FaLinkedin,
+  FaGithub,
+  FaPaperPlane,
+  FaCheckCircle,
+} from "react-icons/fa";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
   const [focusedField, setFocusedField] = useState<string | null>(null);
-  const [formStatus, setFormStatus] = useState<"idle" | "sending" | "success">("idle");
+  const [formStatus, setFormStatus] = useState<"idle" | "sending" | "success">(
+    "idle",
+  );
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -16,7 +28,11 @@ export default function Contact() {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const } },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
+    },
   };
 
   const handleFocus = (field: string) => setFocusedField(field);
@@ -47,7 +63,10 @@ export default function Contact() {
         className="text-center mb-16"
       >
         <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 tracking-tight">
-          Initialize <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-amber-400">Connection</span>
+          Initialize{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-amber-400">
+            Connection
+          </span>
         </h1>
         <p className="text-slate-400 font-mono text-xs tracking-widest uppercase">
           COMMUNICATION // DIRECT LINK & MESSAGE ROUTER
@@ -73,17 +92,17 @@ export default function Contact() {
               accent="rose"
             />
           </motion.div>
-          
+
           <motion.div variants={itemVariants}>
             <ContactCard
-              href="https://www.linkedin.com/in/devendra-sonawane-93763636a/"
+              href="https://www.linkedin.com/in/devson1024"
               icon={<FaLinkedin className="text-blue-400" />}
               title="LinkedIn Node"
-              description="devendra-sonawane-93763636a"
+              description="Devson1024"
               accent="blue"
             />
           </motion.div>
-          
+
           <motion.div variants={itemVariants}>
             <ContactCard
               href="https://github.com/DevSon1024"
@@ -101,8 +120,12 @@ export default function Contact() {
           className="lg:col-span-7 glass-card glow-card-indigo p-6 sm:p-8 relative overflow-hidden"
         >
           <div className="flex items-center justify-between mb-8 border-b border-white/5 pb-4">
-            <h3 className="font-bold text-lg text-slate-100">Send Secured Message</h3>
-            <span className="text-xs font-mono text-slate-500">PROTOCOL // SSL_V3</span>
+            <h3 className="font-bold text-lg text-slate-100">
+              Send Secured Message
+            </h3>
+            <span className="text-xs font-mono text-slate-500">
+              PROTOCOL // SSL_V3
+            </span>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -115,9 +138,12 @@ export default function Contact() {
                   className="flex flex-col items-center justify-center py-12 text-center"
                 >
                   <FaCheckCircle className="text-5xl text-emerald-400 mb-4 animate-bounce" />
-                  <h4 className="text-xl font-bold text-slate-100 mb-2">Message Dispatched!</h4>
+                  <h4 className="text-xl font-bold text-slate-100 mb-2">
+                    Message Dispatched!
+                  </h4>
                   <p className="text-slate-400 text-sm max-w-sm font-mono">
-                    Connection established. Data package routed successfully. Will reply shortly.
+                    Connection established. Data package routed successfully.
+                    Will reply shortly.
                   </p>
                 </motion.div>
               ) : (
@@ -134,7 +160,9 @@ export default function Contact() {
                       id="name"
                       required
                       value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
                       onFocus={() => handleFocus("name")}
                       onBlur={(e) => handleBlur("name", e.target.value)}
                       className="w-full px-4 py-3.5 bg-slate-950/60 border border-white/5 rounded-xl font-mono text-sm text-slate-200 focus:outline-none focus:border-indigo-500 transition-colors pt-6"
@@ -158,7 +186,9 @@ export default function Contact() {
                       id="email"
                       required
                       value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
                       onFocus={() => handleFocus("email")}
                       onBlur={(e) => handleBlur("email", e.target.value)}
                       className="w-full px-4 py-3.5 bg-slate-950/60 border border-white/5 rounded-xl font-mono text-sm text-slate-200 focus:outline-none focus:border-indigo-500 transition-colors pt-6"
@@ -182,7 +212,9 @@ export default function Contact() {
                       required
                       rows={5}
                       value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, message: e.target.value })
+                      }
                       onFocus={() => handleFocus("message")}
                       onBlur={(e) => handleBlur("message", e.target.value)}
                       className="w-full px-4 py-3.5 bg-slate-950/60 border border-white/5 rounded-xl font-mono text-sm text-slate-200 focus:outline-none focus:border-indigo-500 transition-colors pt-6 resize-none"
@@ -240,7 +272,8 @@ function ContactCard({
   const accentClasses: Record<string, string> = {
     rose: "hover:border-rose-500/30 hover:bg-rose-500/5 hover:shadow-[0_0_20px_rgba(244,63,94,0.1)]",
     blue: "hover:border-blue-500/30 hover:bg-blue-500/5 hover:shadow-[0_0_20px_rgba(59,130,246,0.1)]",
-    slate: "hover:border-slate-500/30 hover:bg-slate-500/5 hover:shadow-[0_0_20px_rgba(148,163,184,0.1)]",
+    slate:
+      "hover:border-slate-500/30 hover:bg-slate-500/5 hover:shadow-[0_0_20px_rgba(148,163,184,0.1)]",
   };
 
   return (
