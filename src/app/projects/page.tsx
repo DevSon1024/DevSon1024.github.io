@@ -158,7 +158,7 @@ export default function Projects() {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`relative px-6 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 ${
+                className={`relative px-3 sm:px-6 py-1.5 sm:py-2 rounded-xl text-[10px] sm:text-sm font-semibold transition-all duration-300 ${
                   isActive ? "text-slate-100" : "text-slate-400 hover:text-slate-200"
                 }`}
               >
@@ -190,7 +190,7 @@ export default function Projects() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 10 }}
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="group glass-card glow-card-indigo flex flex-col p-8 rounded-3xl"
+              className="group glass-card glow-card-indigo flex flex-col p-6 sm:p-8 rounded-3xl"
             >
               {/* Top Banner Badges */}
               <div className="flex justify-between items-start gap-4 mb-6">
@@ -285,7 +285,7 @@ export default function Projects() {
         {/* Coming Soon Card */}
         <motion.div
           layout
-          className="col-span-1 md:col-span-2 glass-card glow-card-amber p-8 text-center flex flex-col items-center justify-center min-h-[300px]"
+          className="col-span-1 md:col-span-2 glass-card glow-card-amber p-6 sm:p-8 text-center flex flex-col items-center justify-center min-h-[300px]"
         >
           <div className="w-12 h-12 mb-4 rounded-2xl bg-amber-500/10 border border-amber-500/25 flex items-center justify-center shadow-lg">
             <FaCode className="text-xl text-amber-400 animate-pulse" />

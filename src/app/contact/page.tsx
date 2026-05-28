@@ -98,7 +98,7 @@ export default function Contact() {
         {/* Right Column: Connection Form (7 cols) */}
         <motion.div
           variants={itemVariants}
-          className="lg:col-span-7 glass-card glow-card-indigo p-8 relative overflow-hidden"
+          className="lg:col-span-7 glass-card glow-card-indigo p-6 sm:p-8 relative overflow-hidden"
         >
           <div className="flex items-center justify-between mb-8 border-b border-white/5 pb-4">
             <h3 className="font-bold text-lg text-slate-100">Send Secured Message</h3>
@@ -248,16 +248,16 @@ function ContactCard({
       href={href}
       target={href.startsWith("mailto") ? "_self" : "_blank"}
       rel="noopener noreferrer"
-      className={`contact-card-custom flex items-center gap-5 p-6 rounded-2xl group ${accentClasses[accent]}`}
+      className={`contact-card-custom flex items-center gap-3 sm:gap-5 p-4 sm:p-6 rounded-2xl group ${accentClasses[accent]}`}
     >
       <div className="contact-icon-custom text-3xl shrink-0 p-3 rounded-xl shadow-inner group-hover:scale-110 transition-transform">
         {icon}
       </div>
-      <div>
+      <div className="min-w-0 flex-1">
         <h4 className="text-xs font-mono font-bold text-slate-500 tracking-wider group-hover:text-slate-400 transition-colors uppercase">
           {title}
         </h4>
-        <p className="text-sm font-semibold text-slate-200 mt-1 truncate max-w-[200px] sm:max-w-xs">
+        <p className="text-sm font-semibold text-slate-200 mt-1 break-all">
           {description}
         </p>
       </div>

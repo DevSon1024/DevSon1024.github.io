@@ -43,7 +43,7 @@ export default function About() {
       >
         
         {/* Left Column: Education Timeline (6 cols) */}
-        <motion.div variants={itemVariants} className="lg:col-span-6 glass-card glow-card-indigo p-8 flex flex-col">
+        <motion.div variants={itemVariants} className="lg:col-span-6 glass-card glow-card-indigo p-6 sm:p-8 flex flex-col">
           <div className="flex items-center gap-3 mb-8">
             <div className="w-10 h-10 bg-indigo-500/10 border border-indigo-500/30 rounded-xl flex items-center justify-center text-indigo-400 text-lg shadow-md">
               <FaGraduationCap />
@@ -83,7 +83,7 @@ export default function About() {
         </motion.div>
 
         {/* Right Column: Skills Categorized (6 cols) */}
-        <motion.div variants={itemVariants} className="lg:col-span-6 glass-card glow-card-purple p-8">
+        <motion.div variants={itemVariants} className="lg:col-span-6 glass-card glow-card-purple p-6 sm:p-8">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-10 h-10 bg-purple-500/10 border border-purple-500/30 rounded-xl flex items-center justify-center text-purple-400 text-lg shadow-md">
               <FaCode />
@@ -170,7 +170,7 @@ export default function About() {
         </motion.div>
 
         {/* Card 4: Interests & Focus (4 cols) */}
-        <motion.div variants={itemVariants} className="lg:col-span-4 glass-card glow-card-amber p-8 flex flex-col justify-between">
+        <motion.div variants={itemVariants} className="lg:col-span-4 glass-card glow-card-amber p-6 sm:p-8 flex flex-col justify-between">
           <div>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 bg-amber-500/10 border border-amber-500/30 rounded-xl flex items-center justify-center text-amber-400 text-lg shadow-md">

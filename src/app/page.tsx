@@ -8,13 +8,13 @@ import { SiFlutter, SiKotlin, SiReact, SiNextdotjs, SiPython, SiTailwindcss } fr
 
 // Reusable springy letter-by-letter typing animation component
 function TypingText({ text, className }: { text: string; className?: string }) {
-  const letters = Array.from(text);
+  const words = text.split(" ");
   
   const container = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.05, delayChildren: 0.3 }
+      transition: { staggerChildren: 0.03, delayChildren: 0.2 }
     }
   };
   
@@ -34,14 +34,19 @@ function TypingText({ text, className }: { text: string; className?: string }) {
       animate="visible" 
       className={className}
     >
-      {letters.map((char, index) => (
-        <motion.span 
-          key={index} 
-          variants={letterVariants} 
-          className="inline-block"
-        >
-          {char === " " ? "\u00A0" : char}
-        </motion.span>
+      {words.map((word, wordIndex) => (
+        <span key={wordIndex} className="inline-block whitespace-nowrap">
+          {Array.from(word).map((char, charIndex) => (
+            <motion.span 
+              key={charIndex} 
+              variants={letterVariants} 
+              className="inline-block"
+            >
+              {char}
+            </motion.span>
+          ))}
+          {wordIndex < words.length - 1 && " "}
+        </span>
       ))}
     </motion.span>
   );
@@ -77,10 +82,10 @@ export default function Home() {
         {/* Card 1: Profile & Intro (8 columns) */}
         <motion.div 
           variants={itemVariants}
-          className="md:col-span-8 glass-card glow-card-indigo p-8 flex flex-col justify-between min-h-[340px]"
+          className="md:col-span-8 glass-card glow-card-indigo p-6 sm:p-8 flex flex-col justify-between min-h-[340px]"
         >
-          <div className="flex justify-between items-start gap-4">
-            <div className="flex flex-col gap-2">
+          <div className="flex flex-col-reverse sm:flex-row justify-between items-start gap-6">
+            <div className="flex flex-col gap-2 w-full sm:w-auto">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold w-fit">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                 AVAILABLE FOR OPPORTUNITIES
@@ -97,7 +102,7 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border border-slate-700 bg-slate-900 shadow-xl shrink-0">
+            <div className="relative w-20 h-20 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border border-slate-700 bg-slate-900 shadow-xl shrink-0 self-center sm:self-start">
               <Image
                 src="/assets/profile.png"
                 alt="Devendra Sonawane"
@@ -123,7 +128,7 @@ export default function Home() {
         {/* Card 2: Stats Display (4 columns) */}
         <motion.div 
           variants={itemVariants}
-          className="md:col-span-4 glass-card glow-card-amber p-8 flex flex-col justify-between min-h-[340px]"
+          className="md:col-span-4 glass-card glow-card-amber p-6 sm:p-8 flex flex-col justify-between min-h-[340px]"
         >
           <div>
             <h3 className="font-mono text-xs tracking-widest text-amber-400 font-bold uppercase mb-4">SYSTEM STATS</h3>
@@ -151,7 +156,7 @@ export default function Home() {
         {/* Card 3: Interactive Tech Stack (6 columns) */}
         <motion.div 
           variants={itemVariants}
-          className="md:col-span-6 glass-card glow-card-violet p-8"
+          className="md:col-span-6 glass-card glow-card-violet p-6 sm:p-8"
         >
           <div className="flex items-center gap-2 mb-6">
             <FaCode className="text-purple-400 text-lg" />
@@ -175,7 +180,7 @@ export default function Home() {
         {/* Card 4: Flagship Project - Nosved Player (6 columns) */}
         <motion.div 
           variants={itemVariants}
-          className="md:col-span-6 glass-card glow-card-indigo p-8 flex flex-col justify-between"
+          className="md:col-span-6 glass-card glow-card-indigo p-6 sm:p-8 flex flex-col justify-between"
         >
           <div>
             <div className="flex justify-between items-start gap-4 mb-4">
@@ -222,7 +227,7 @@ export default function Home() {
         {/* Card 5: Connect Hub & Socials (7 columns) */}
         <motion.div 
           variants={itemVariants}
-          className="md:col-span-7 glass-card glow-card-indigo p-8 flex flex-col justify-between"
+          className="md:col-span-7 glass-card glow-card-indigo p-6 sm:p-8 flex flex-col justify-between"
         >
           <div>
             <h3 className="font-mono text-xs tracking-widest text-slate-400 font-bold uppercase mb-4">CONNECT GATEWAY</h3>
@@ -271,7 +276,7 @@ export default function Home() {
         {/* Card 6: Secondary Featured - PixChive (5 columns) */}
         <motion.div 
           variants={itemVariants}
-          className="md:col-span-5 glass-card glow-card-violet p-8 flex flex-col justify-between"
+          className="md:col-span-5 glass-card glow-card-violet p-6 sm:p-8 flex flex-col justify-between"
         >
           <div>
             <div className="flex justify-between items-start gap-4 mb-4">

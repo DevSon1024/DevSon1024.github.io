@@ -149,7 +149,7 @@ export default async function PixChivePage() {
         </Link>
 
         {/* Header Block */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 glass-card glow-card-indigo p-8">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 glass-card glow-card-indigo p-6 sm:p-8">
           <div className="relative w-20 h-20 rounded-2xl overflow-hidden bg-slate-900 border border-slate-700 shadow-xl shrink-0">
             <Image
               src="/assets/PixChive_icon.png"
@@ -170,7 +170,7 @@ export default async function PixChivePage() {
         </div>
 
         {/* Download Latest Variants */}
-        <section className="glass-card glow-card-indigo p-8 space-y-6">
+        <section className="glass-card glow-card-indigo p-6 sm:p-8 space-y-6">
           <div>
             <h2 className="text-lg font-bold text-slate-100">Download Latest Release</h2>
             <p className="text-xs font-mono text-slate-400 mt-1">
@@ -224,7 +224,7 @@ export default async function PixChivePage() {
         </section>
 
         {/* Changelog section */}
-        <section className="glass-card glow-card-indigo p-8 space-y-4">
+        <section className="glass-card glow-card-indigo p-6 sm:p-8 space-y-4">
           <h2 className="text-lg font-bold text-slate-100">What&apos;s Changed</h2>
           <div className="bg-slate-950/40 rounded-2xl border border-white/5 p-6 max-h-[30rem] overflow-y-auto font-mono text-sm leading-relaxed text-slate-300">
             {latest.body?.trim() ? (
@@ -240,7 +240,7 @@ export default async function PixChivePage() {
         {/* Older Versions */}
         {older.length > 0 && (
           <section className="glass-card glow-card-indigo overflow-hidden">
-            <div className="px-8 py-5 border-b border-white/5">
+            <div className="px-6 sm:px-8 py-4 sm:py-5 border-b border-white/5">
               <h2 className="text-lg font-bold text-slate-100">Older Releases</h2>
             </div>
             <ul className="divide-y divide-white/5">
@@ -253,7 +253,7 @@ export default async function PixChivePage() {
                 return (
                   <li
                     key={r.id}
-                    className="flex items-center justify-between px-8 py-4.5 hover:bg-white/5 transition-colors"
+                    className="flex items-center justify-between px-6 sm:px-8 py-3.5 sm:py-4.5 hover:bg-white/5 transition-colors"
                   >
                     <div className="space-y-0.5">
                       <div className="font-mono text-sm font-bold text-slate-200">
