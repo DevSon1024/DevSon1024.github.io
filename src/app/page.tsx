@@ -45,7 +45,7 @@ function TypingText({ text, className }: { text: string; className?: string }) {
               {char}
             </motion.span>
           ))}
-          {wordIndex < words.length - 1 && " "}
+          {wordIndex < words.length - 1 && "\u00A0"}
         </span>
       ))}
     </motion.span>

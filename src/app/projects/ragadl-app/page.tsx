@@ -15,7 +15,7 @@ type Release = {
 
 async function getReleases(): Promise<Release[]> {
   const res = await fetch(
-    "https://api.github.com/repos/DevSon1024/pixchive/releases",
+    "https://api.github.com/repos/DevSon1024/ragadl-app/releases",
     {
       headers: {
         "User-Agent": "DevSon1024-Portfolio",
@@ -114,7 +114,7 @@ const colorMap = {
   },
 };
 
-export default async function PixChivePage() {
+export default async function RagaDLPage() {
   const releases = await getReleases();
 
   if (!releases.length) {
@@ -157,14 +157,14 @@ export default async function PixChivePage() {
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 glass-card glow-card-indigo p-6 sm:p-8">
           <div className="relative w-20 h-20 rounded-2xl overflow-hidden bg-slate-900 border border-slate-700 shadow-xl shrink-0">
             <Image
-              src="/assets/PixChive_icon.png"
-              alt="PixChive icon"
+              src="/assets/ragalahari_downloader_icon.png"
+              alt="RagaDL icon"
               fill
               className="object-cover"
             />
           </div>
           <div className="space-y-1.5">
-            <h1 className="text-3xl font-extrabold tracking-tight text-slate-100">PixChive</h1>
+            <h1 className="text-3xl font-extrabold tracking-tight text-slate-100">RagaDL (Ragalahari Downloader)</h1>
             <p className="text-slate-400 font-mono text-xs">
               TAG: {latest.tag_name} &bull; RELEASED: {fmtDate(latest.published_at)}
             </p>

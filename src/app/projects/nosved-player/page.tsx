@@ -16,7 +16,12 @@ type Release = {
 async function getReleases(): Promise<Release[]> {
   const res = await fetch(
     "https://api.github.com/repos/DevSon1024/Nosved-Player/releases",
-    { next: { revalidate: 3600 } },
+    {
+      headers: {
+        "User-Agent": "DevSon1024-Portfolio",
+      },
+      next: { revalidate: 3600 },
+    },
   );
   return res.ok ? res.json() : [];
 }
