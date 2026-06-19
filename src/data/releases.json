@@ -1,0 +1,259 @@
+{
+  "ragalahari": {
+    "title": "RagaDL (Ragalahari Downloader)",
+    "versions": [
+      {
+        "version": "v3.5.0",
+        "markdown": "# RagaDL v3.5.0 Release Notes\n\n**Release date:** June 2026  \n**Upgrade path:** From v3.1.0 to v3.5.0\n\nThis release brings a substantial product update across discovery, downloads, favorites, UI polish, and internal architecture. The version jump is appropriate because the changes include multiple backward-compatible feature additions and broad improvements, which aligns with Semantic Versioning guidance for a minor release, while professional changelog guidance recommends grouping notable changes into sections such as Added, Changed, Fixed, and Removed for clarity.\n\n> ## Highlights\n\n- Introduced a more capable multi-site downloader with support for Ragalahari, Idlebrain, and Behindwoods, including pagination-aware scraping and improved bulk download notifications.\n- Revamped key user-facing areas such as Latest pages, Favorites, Gallery Links, and Celebrity List with better UI consistency, stronger performance, and cleaner interactions.\n- Reworked major app modules into cleaner feature-based layers with Riverpod-powered state management for better scalability and maintainability.\n\n> ## Added\n\n> > ### New features\n- Added carousel sections across latest pages to surface recent updates more prominently at the top of the app.\n- Added a Latest Events option to download the newest event gallery images.\n- Added star-based favorite toggles to Latest tabs including Celebrities, Actors, and Actresses, with saved items routed into the Galleries section.\n- Added search recommendations in celebrity profiles instead of direct search, with paginated loading capped at 50 items per page.\n- Added shimmer loading for the history list view to improve perceived loading quality.\n- Added immersive mode support to reduce the bottom blank area and improve full-screen app presentation.\n- Added more color palettes and refined top bar styling for a more polished look.\n- Added app name and app version labeling for ABI build version names.\n\n>> ### Downloader expansion\n- Added Idlebrain gallery image downloading with direct link paste support.\n- Added Behindwoods gallery scraping support with paginated page ranges, chunked concurrent crawling, dynamic range controls, and site-specific thumbnail handling.\n- Added a supported-sites information list in the downloader UI for ragalahari.com, idlebrain.com, and behindwoods.com.\n- Added a dynamic info button and range-limit guidance for Behindwoods links in the downloader flow.\n\n> ## Changed\n\n>> ### UI and experience\n- Increased gallery sizing in latest sections for stronger visual emphasis.\n- Introduced auto-hiding app bars on the home page and celebrity pages for a more immersive browsing experience.\n- Redesigned the Favorites > Galleries tab into a cleaner grid layout with Show Galleries actions and top-insertion for newly favorited items.\n- Updated the search bar design to match the newer visual language across the app.\n- Adjusted overlay styling in the image viewer by replacing heavy blur effects with cleaner solid overlays.\n- Refined the history page for faster loading, stronger empty-gallery handling, and a better overall browsing flow.\n\n>> ### Performance and behavior\n- Improved rendering performance for favorites and the image viewer.\n- Moved celebrity favorites loading from async builders to state-driven updates for faster UI feedback and smoother scrolling.\n- Increased maximum image zoom to 15x.\n- Improved downloader notification behavior for bulk downloads, with pause, resume, and cancel flow still in progress.\n- Updated downloader URL handling and notification listener behavior for more reliable download operations.\n\n>> ### Architecture and codebase\n- Migrated major feature flows to Riverpod-based state management to improve scalability and state handling.\n- Refactored Downloader, Gallery Links, Celebrity List, and Latest modules into cleaner feature-based structures with separate UI, logic, models, controllers, widgets, and utilities where applicable.\n- Consolidated shared UI pieces such as search bars, error views, and celebrity cards into reusable common widgets to reduce duplication.\n- Unified favorites handling into a shared common favorites service.\n- Generalized parser behavior through a shared SiteParser interface and ParserFactory-based support checks, removing hardcoded site-specific branching from downloader logic.\n\n> ## Fixed\n\n- Fixed the pixelized error in link history updates.\n- Fixed Show Galleries button issues in the Latest pages.\n- Fixed async context problems by adding mounted checks after async gaps.\n- Fixed duplicate-code issues across shared widgets and latest page components.\n- Fixed slower-network Dio exception cases affecting downloads.\n- Reduced UI jank, memory leaks, and CPU spikes by optimizing favorites checks, download task state updates, isolate concurrency, and image viewer lifecycle handling.\n- Cleaned lint warnings, removed stale imports, and resolved unused or unreachable code paths.\n\n> ## Removed\n\n- Removed unnecessary Linux and web app versions from the project distribution targets.\n- Removed unused analysis report files and other dead code artifacts.\n- Removed redundant localized widget implementations after moving to shared common components.\n- Removed heavy FutureBuilder-based favorite status checks from gallery grids in favor of synchronous controller-driven state.\n\n> ## Developer notes\n\nAlthough the visible version jump from v3.1.0 to v3.5.0 may look modest, the release packages several months of user-facing features, UX improvements, performance work, and structural refactors into one backward-compatible update, which fits a minor-version increment under semantic versioning rather than a patch release.\n\n> ## Suggested store summary\n\nRagaDL v3.5.0 introduces a major quality update with new latest-page carousels, expanded multi-site downloading, redesigned favorites, smoother browsing performance, and a cleaner Riverpod-powered architecture. Users should notice faster interactions, improved stability, and a more polished gallery experience throughout the app.",
+        "releases": [
+          {
+            "abi": "arm64-v8a",
+            "url": "https://github.com/DevSon1024/ragadl-app/releases/download/v3.5.0/Ragalahari_Downloader-3.5.0-arm64-v8a-release.apk",
+            "size": "27.28 MB"
+          },
+          {
+            "abi": "armeabi-v7a",
+            "url": "https://github.com/DevSon1024/ragadl-app/releases/download/v3.5.0/Ragalahari_Downloader-3.5.0-armeabi-v7a-release.apk",
+            "size": "25.21 MB"
+          },
+          {
+            "abi": "c86_64",
+            "url": "https://github.com/DevSon1024/ragadl-app/releases/download/v3.5.0/Ragalahari_Downloader-3.5.0-x86_64-release.apk",
+            "size": "28.65 MB"
+          }
+        ]
+      },
+      {
+        "version": "v3.1.0",
+        "markdown": "# v3.1.0 Release Notes\n\nHere are the release notes for **v3.1.0** in Markdown format, polished and based on the changes in your code.\n\n***\n\n# Release Notes v3.1.0\n\nWe are excited to bring you **RagaDL v3.1.0**! This update focuses on refining the user interface and improving navigation speed.\n\n### 🚀 What's New\n\n* **✨ Revamped UI Experience**\n    * The entire app interface has been updated to provide a smoother, more modern, and user-friendly experience.\n\n* **🖼️ Enhanced Image Viewer**\n    * We've upgraded the in-app gallery viewer. Enjoy a more immersive experience when browsing your downloaded collections.\n\n* **⚡ Quick Profile Access**\n    * Added a new **shortcut button** in the *Latest Galleries* section. You can now jump directly to a celebrity's full profile page with a single tap.\n\n* **⭐ Intuitive Favorites**\n    * We've replaced the old sorting arrows with a clear **Star icon** ⭐, making it easier than ever to mark profiles as favorites.\n\n---\n\n*Download the latest update to enjoy these improvements!*",
+        "releases": [
+          {
+            "abi": "arm64-v8a",
+            "url": "https://github.com/DevSon1024/ragadl-app/releases/download/v3.1.0/Ragalahari_Downloader-3.1.0-arm64-v8a-release.apk",
+            "size": "21.06 MB"
+          },
+          {
+            "abi": "armeabi-v7a",
+            "url": "https://github.com/DevSon1024/ragadl-app/releases/download/v3.1.0/Ragalahari_Downloader-3.1.0-armeabi-v7a-release.apk",
+            "size": "18.88 MB"
+          },
+          {
+            "abi": "x86_64",
+            "url": "https://github.com/DevSon1024/ragadl-app/releases/download/v3.1.0/Ragalahari_Downloader-3.1.0-x86_64-release.apk",
+            "size": "22.18 MB"
+          }
+        ]
+      },
+      {
+        "version": "v3.0.0",
+        "markdown": "# Ragalahari Downloader v3.0.0 Release Notes\n\nWe are thrilled to announce the release of **Ragalahari Downloader v3.0.0**, a major update that brings a completely refreshed design and significant functional enhancements. We've jumped from v2.6.4 to v3.0.0 to reflect the substantial improvements made since the last update.\n\n## ✨ What's New\n\nThis version focuses on a more intuitive user experience, improved performance, and powerful new features:\n\n* **🚀 Revamped User Interface:** A complete UI overhaul provides a modern, clean, and easy-to-navigate interface.\n* **💡 Enhanced Performance:** The app is now faster and more responsive, thanks to updated tools and optimized code.\n* **🔔 Advanced Download Notifications:** With the integration of Awesome Notifications, you get more reliable and detailed notifications for your downloads.\n* **🔄 State Management with Riverpod:** We've upgraded our state management to `flutter_riverpod` for a more robust and scalable app architecture.\n* **🖼️ Improved Image Loading:** `cached_network_image` has been updated to ensure faster and more reliable image loading and caching.\n* **⬆️ Updated Dependencies:** All major packages, including `dio`, `permission_handler`, and `shared_preferences`, have been updated to their latest versions for better performance, security, and compatibility.\n\n## 🛠️ Bug Fixes and Improvements\n\n* **[Fixed]** Resolved intermittent crashes during image downloads.\n* **[Fixed]** Addressed issues with file permissions on the latest Android versions.\n* **[Fixed]** Improved error handling for broken gallery URLs.\n* **[Improved]** Enhanced the CSV import/export functionality for celebrity lists.\n* **[Improved]** Streamlined the process of pausing and resuming downloads.\n* **[Improved]** Optimized background processing for smoother multitasking.\n\n## ⬇️ Download\n\nYou can download the latest version from our [GitHub Releases](https://github.com/DevSon1024/ragalahari_downloader_2025/releases) page.\n\n---\n\nThank you for your continued support! We're excited for you to try out the new and improved Ragalahari Downloader. If you have any feedback or suggestions, please open an issue on our GitHub page.",
+        "releases": [
+          {
+            "abi": "arm64-v8a",
+            "url": "https://github.com/DevSon1024/ragadl-app/releases/download/v3.0.0/Ragalahari_Downloader-3.0.0-arm64-v8a-release.apk",
+            "size": "20.35 MB"
+          },
+          {
+            "abi": "armeabi-v7a",
+            "url": "https://github.com/DevSon1024/ragadl-app/releases/download/v3.0.0/Ragalahari_Downloader-3.0.0-armeabi-v7a-release.apk",
+            "size": "18.06 MB"
+          },
+          {
+            "abi": "x86_64",
+            "url": "https://github.com/DevSon1024/ragadl-app/releases/download/v3.0.0/Ragalahari_Downloader-3.0.0-x86_64-release.apk",
+            "size": "21.46 MB"
+          }
+        ]
+      },
+      {
+        "version": "v2.6.4",
+        "markdown": "# Ragalahari Downloader - Release Notes\n\n## Version: v2.6.4  \n Release Date: June 1, 2025\n\n---\n\n## Fixes\n\n- ✅ Fixed an issue where downloads were stuck on the Downloads page — now only **paused** and **failed** downloads will be shown.\n- ✅ Resolved a **padding issue** in the History page that prevented gallery/images from showing at the end.\n- ✅ Applied the **Cool Theme** as the new default.\n\n---\n\n## Updates\n\n-  Added support for **device default theme setting** (Light/Dark/Auto).\n-  Introduced a **website status checker** in place of the previous welcome text to instantly show Ragalahari site status.\n-  Updated and integrated an improved **celebrity database**.\n-  Revamped the entire app UI using **Material 3** for a fresh, modern look.\n\n---\n\n##  Notes\n\nThis update enhances app stability, improves the visual interface, and aligns with modern design guidelines. Update now to enjoy a smoother download experience!\n\n---\n\n **Mobile-first and optimized for best performance across devices.**\n\n**Full Changelog**: https://github.com/DevSon1024/ragalahari_downloader_2025/compare/v2.6.2...v2.6.4",
+        "releases": [
+          {
+            "abi": "arm64-v8a",
+            "url": "https://github.com/DevSon1024/ragadl-app/releases/download/v2.6.4/Ragalahari_Downloader-2.6.4-arm64-v8a-release.apk",
+            "size": "20.06 MB"
+          },
+          {
+            "abi": "armeabi-v7a",
+            "url": "https://github.com/DevSon1024/ragadl-app/releases/download/v2.6.4/Ragalahari_Downloader-2.6.4-armeabi-v7a-release.apk",
+            "size": "17.74 MB"
+          },
+          {
+            "abi": "x86_64",
+            "url": "https://github.com/DevSon1024/ragadl-app/releases/download/v2.6.4/Ragalahari_Downloader-2.6.4-x86_64-release.apk",
+            "size": "21.18 MB"
+          }
+        ]
+      },
+      {
+        "version": "v2.6.2",
+        "markdown": "# Release Notes\n\n## Bug Fixes\n-  Solved the asking permissions on different occasions,\n    - like after installation 'notifications'\n    - while watching history 'gallery permission'\n    - while downloading images for 'manage storage files'\n- now it will ask all the permission at once after installation.\n- solve exception while loading images in history (sometieme)\n- solve storage permission error in history page\n- solve shimmer loading screen problem in history page for both view types (Grid/List).\n\n## Updates\n- Normal Notification Added for Downloading\n- Dynamic Dragable Container Pages on Main page\n- Added Recycle Bin in History Page with auto-deletion period option\n- Added a Link History Page for the used links data (can be deleted)\n- search bar in gallery links page for finding specific gallery by thier galley id.\n- Added cache memory system for the loaded celebrity gallery links\n- 'Clear Cache' button for clearing loaded junk. (if wanted)\n- Modified 'Favourites' tab For Deviding Celebrities and Galleries.\n- Added Viewing Presets for more Personilize experience.\n- Viewing Presets With 2 Viewing Types:\n     - Grid View\n     - List view  \n- Modified Recycle Bin For Concluding Deleted Folders. \n- Some Changes in Theme Settings. \n\n## Privacy\n- All operations are performed locally on your device.\n- No data is transmitted outside of your device.\n\n## Notes\n**report the bugs or errors if found any**",
+        "releases": [
+          {
+            "abi": "arm64-v8a",
+            "url": "https://github.com/DevSon1024/ragadl-app/releases/download/v2.6.2/Ragalahari_Downloader-2.6.2-arm64-v8a-release.apk",
+            "size": "19.90 MB"
+          },
+          {
+            "abi": "armeabi-v7a",
+            "url": "https://github.com/DevSon1024/ragadl-app/releases/download/v2.6.2/Ragalahari_Downloader-2.6.2-armeabi-v7a-release.apk",
+            "size": "17.66 MB"
+          },
+          {
+            "abi": "x86_64",
+            "url": "https://github.com/DevSon1024/ragadl-app/releases/download/v2.6.2/Ragalahari_Downloader-2.6.2-x86_64-release.apk",
+            "size": "21.06 MB"
+          }
+        ]
+      },
+      {
+        "version": "v2.6.0",
+        "markdown": "# Release Notes\n\n## Bug Fixes\n- No specific bug fixes reported in this release.\n\n## Updates\n- Added Sorting option for Actor and Actress individual in celebrity list\n- Now You Can update Database on scheduled Timing\n- Delete Share Images from the app by selecting individually\n\n## Privacy\n- All operations are performed locally on your device.\n- No data is transmitted outside of your device.\n\n## Notes\n**report the bugs or errors if found any**",
+        "releases": [
+          {
+            "abi": "arm64-v8a",
+            "url": "https://github.com/DevSon1024/ragadl-app/releases/download/v2.6.0/Ragalahari_Downloader-2.6.0-arm64-v8a-release.apk",
+            "size": "18.56 MB"
+          },
+          {
+            "abi": "armeabi-v7a",
+            "url": "https://github.com/DevSon1024/ragadl-app/releases/download/v2.6.0/Ragalahari_Downloader-2.6.0-armeabi-v7a-release.apk",
+            "size": "16.21 MB"
+          },
+          {
+            "abi": "x86_64",
+            "url": "https://github.com/DevSon1024/ragadl-app/releases/download/v2.6.0/Ragalahari_Downloader-2.6.0-x86_64-release.apk",
+            "size": "19.65 MB"
+          }
+        ]
+      },
+      {
+        "version": "v2.5.8",
+        "markdown": "# Release Notes\n\n## Bug Fixes\n- No specific bug fixes reported in this release.\n\n## Updates\n- Added the same selection method as the Downloader in the History Tab for downloaded images.\n- Selection functionality now supports deleting or sharing downloaded images.\n\n## New Release\n- Ragalahari Downloader is now available on Windows Desktop.\n  - Not fully optimized but functional when running the executable file.\n  - To use: Unzip the file and run the `.exe` file. ``\n  - Operates similarly to the mobile application.\n\n## Privacy\n- All operations are performed locally on your device.\n- No data is transmitted outside of your device.",
+        "releases": [
+          {
+            "abi": "arm64-v8a",
+            "url": "https://github.com/DevSon1024/ragadl-app/releases/download/v2.5.8/Ragalahari_Downloader-2.5.8-arm64-v8a-release.apk",
+            "size": "18.2 MB"
+          },
+          {
+            "abi": "armeabi-v7a",
+            "url": "https://github.com/DevSon1024/ragadl-app/releases/download/v2.5.8/Ragalahari_Downloader-2.5.8-armeabi-v7a-release.apk",
+            "size": "15.9 MB"
+          },
+          {
+            "abi": "x86_64",
+            "url": "https://github.com/DevSon1024/ragadl-app/releases/download/v2.5.8/Ragalahari_Downloader-2.5.8-x86_64-release.apk",
+            "size": "19.4 MB"
+          }
+        ]
+      },
+      {
+        "version": "v2.5.6",
+        "markdown": "- Bug Fixes\n\n### Updates:\n- Added Individual Image Selection For Gallery Images",
+        "releases": [
+          {
+            "abi": "arm64-v8a",
+            "url": "https://github.com/DevSon1024/ragadl-app/releases/download/v2.5.6/Ragalahari_Downloader-2.5.6-arm64-v8a-release.apk",
+            "size": "18.2 MB"
+          },
+          {
+            "abi": "armeabi-v7a",
+            "url": "https://github.com/DevSon1024/ragadl-app/releases/download/v2.5.6/Ragalahari_Downloader-2.5.6-armeabi-v7a-release.apk",
+            "size": "15.8 MB"
+          },
+          {
+            "abi": "x86_64",
+            "url": "https://github.com/DevSon1024/ragadl-app/releases/download/v2.5.6/Ragalahari_Downloader-2.5.6-x86_64-release.apk",
+            "size": "19.3 MB"
+          }
+        ]
+      },
+      {
+        "version": "v2.5.4",
+        "markdown": "i still can't sign my app but it is still workable means there are no bugs only thing that this passed the scan by google protect \n\nuse as you like and give your thoughts on this\n\nalso how can i sign this\n\nplease ",
+        "releases": [
+          {
+            "abi": "arm64-v8a",
+            "url": "https://github.com/DevSon1024/ragadl-app/releases/download/v2.5.4/Ragalahari-Downloader_v2.5.4.apk",
+            "size": "23.4 MB"
+          }
+        ]
+      },
+      {
+        "version": "v1.0.0",
+        "markdown": "**Full Changelog**: https://github.com/DevSon1024/ragalahari_downloader_2025/commits/v1.0.0",
+        "releases": [
+          {
+            "abi": "arm64-v8a",
+            "url": "https://github.com/DevSon1024/ragadl-app/releases/download/v1.0.0/Ragalahari_Downlaoder_v1.0.0.apk",
+            "size": "24.6 MB"
+          }
+        ]
+      }
+    ]
+  },
+  "pixchive": {
+    "title": "PixChive",
+    "versions": [
+      {
+        "version": "v1.0.0",
+        "markdown": "## What's Changed\n\n- Initial public release\n- Browse and archive images from your favourite sources\n- Supports arm64-v8a, armeabi-v7a, x86_64, and universal builds\n\n## Notes\n\nInstall the variant matching your device CPU for optimal performance.",
+        "releases": [
+          {
+            "abi": "arm64-v8a",
+            "url": "https://github.com/DevSon1024/pixchive/releases/latest/download/pixchive-arm64-v8a.apk",
+            "size": "10.2 MB"
+          },
+          {
+            "abi": "armeabi-v7a",
+            "url": "https://github.com/DevSon1024/pixchive/releases/latest/download/pixchive-armeabi-v7a.apk",
+            "size": "9.7 MB"
+          },
+          {
+            "abi": "x86_64",
+            "url": "https://github.com/DevSon1024/pixchive/releases/latest/download/pixchive-x86_64.apk",
+            "size": "11.0 MB"
+          },
+          {
+            "abi": "universal",
+            "url": "https://github.com/DevSon1024/pixchive/releases/latest/download/pixchive-universal.apk",
+            "size": "15.6 MB"
+          }
+        ]
+      }
+    ]
+  },
+  "nosved_player": {
+    "title": "Nosved Player",
+    "versions": [
+      {
+        "version": "v1.0.0",
+        "markdown": "## What's Changed\n\n- Initial public release\n- Powerful local media player with a clean UI\n- Available for arm64-v8a, armeabi-v7a, x86_64, and universal targets\n\n## Notes\n\nPick the APK that corresponds to your device's architecture.",
+        "releases": [
+          {
+            "abi": "arm64-v8a",
+            "url": "https://github.com/DevSon1024/Nosved-Player/releases/latest/download/nosved-arm64-v8a.apk",
+            "size": "14.3 MB"
+          },
+          {
+            "abi": "armeabi-v7a",
+            "url": "https://github.com/DevSon1024/Nosved-Player/releases/latest/download/nosved-armeabi-v7a.apk",
+            "size": "13.8 MB"
+          },
+          {
+            "abi": "x86_64",
+            "url": "https://github.com/DevSon1024/Nosved-Player/releases/latest/download/nosved-x86_64.apk",
+            "size": "15.0 MB"
+          },
+          {
+            "abi": "universal",
+            "url": "https://github.com/DevSon1024/Nosved-Player/releases/latest/download/nosved-universal.apk",
+            "size": "20.1 MB"
+          }
+        ]
+      }
+    ]
+  }
+}

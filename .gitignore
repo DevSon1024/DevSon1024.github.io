@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local CMS / portfolio editor (not committed will add in future)
+/portfolio_editor/
