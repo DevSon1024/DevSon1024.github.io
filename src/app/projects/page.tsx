@@ -16,124 +16,53 @@ import {
   FaLaptopCode,
 } from "react-icons/fa";
 
-// Project data
-const projects = [
-  {
-    id: 1,
-    title: "Nosved Player",
-    description:
-      "An advanced Android video player featuring hardware and software decoding (FFmpeg/ExoPlayer), gesture controls, and customizable interfaces.",
-    tech: ["Android", "Kotlin", "Jetpack Compose", "ExoPlayer", "2026"],
-    github: "https://github.com/DevSon1024/Nosved-Player",
-    detailPage: "/projects/nosved-player",
-    date: "2026-04-10",
-    isLatest: true,
-    category: "Android",
-    imageIcon: "/assets/NosvedPlayer_icon.png",
-  },
-  {
-    id: 2,
-    title: "PixChive",
-    description:
-      "A local gallery and comic/manga reader application featuring hierarchical folder management, quick scanning, and optimized performance.",
-    tech: ["Android", "Kotlin", "Jetpack Compose", "2026"],
-    github: "https://github.com/DevSon1024/PixChive",
-    uptodown: "https://pixchive.en.uptodown.com/android",
-    detailPage: "/projects/pixchive",
-    date: "2026-03-01",
-    isLatest: true,
-    category: "Android",
-    imageIcon: "/assets/PixChive_icon.png",
-  },
-  {
-    id: 8,
-    title: "Smart Institute",
-    description:
-      "A student management ERP system migrated from .NET to MERN stack. Designed robust student portal logic, integrated Cloudinary for image optimization, and optimized with lazy loading, API rate limiting, and debouncing.",
-    tech: ["MongoDB", "Express.js", "React.js", "Node.js", "Cloudinary", "Hostinger"],
-    github: "https://github.com/DevSon1024/education-erp",
-    demo: "https://smartinstituteonline.com",
-    date: "2026-03-20",
-    isLatest: true,
-    category: "Web",
-    icon: <FaLaptopCode className="text-3xl text-purple-500" />,
-  },
-  {
-    id: 9,
-    title: "Movie Ticket Booking System",
-    description:
-      "An end-to-end ticketing platform inspired by BookMyShow. Programmed custom seat booking arrays, verified user review badge system, and incorporated Redux for global state management.",
-    tech: ["MongoDB", "Express.js", "React.js", "Node.js", "Redux", "Tailwind CSS"],
-    github: "https://github.com/DevSon1024/movie-booking-platform",
-    demo: "https://movie-ticket-booking-devson1024.netlify.app",
-    date: "2026-02-15",
-    isLatest: true,
-    category: "Web",
-    icon: <FaCode className="text-3xl text-indigo-500" />,
-  },
-  {
-    id: 3,
-    title: "Gym Management System",
-    description:
-      "A comprehensive MERN stack web application for managing gym operations including member registrations, attendance tracking, membership plans, and payment processing.",
-    tech: ["MongoDB", "Express.js", "React", "Node.js", "Material-UI", "2024"],
-    github: "https://github.com/DevSon1024/gym-management-system",
-    date: "2025-12-17",
-    isLatest: false,
-    category: "Web",
-    icon: <FaDumbbell className="text-3xl text-amber-500" />,
-  },
-  {
-    id: 4,
-    title: "Tours & Travels Management",
-    description:
-      "A comprehensive web-based tour package management and booking platform built with CodeIgniter 4. Features admin panel for package management and user authentication.",
-    tech: ["PHP 8.1+", "CodeIgniter 4", "MySQL", "Bootstrap 5", "2025"],
-    github: "https://github.com/DevSon1024/tours-and-travels-php",
-    date: "2025-12-17",
-    isLatest: false,
-    category: "Web",
-    icon: <FaPlaneDeparture className="text-3xl text-indigo-500" />,
-  },
-  {
-    id: 5,
-    title: "RagaDL (Ragalahari Downloader)",
-    description:
-      "A Flutter mobile application designed to download content from Ragalahari. Features a modern UI with efficient download management.",
-    tech: ["Flutter", "Dart", "Mobile App", "2026"],
-    github: "https://github.com/DevSon1024/ragadl-app",
-    uptodown: "https://ragadl.en.uptodown.com/android",
-    detailPage: "/projects/ragadl-app",
-    date: "2026-06-09",
-    isLatest: true,
-    category: "Android",
-    imageIcon: "/assets/ragalahari_downloader_icon.png",
-  },
-  {
-    id: 6,
-    title: "LinkNest",
-    description:
-      "A comprehensive link management application built with Flutter. Organize, categorize, and manage your important links with ease.",
-    tech: ["Flutter", "Dart", "Link Management", "2025"],
-    github: "https://github.com/DevSon1024/LinkNest",
-    date: "2025-01-01",
-    isLatest: false,
-    category: "Android",
-    imageIcon: "/assets/LinkNest_icon.png",
-  },
-  {
-    id: 7,
-    title: "Ragalahari Downloader 2024",
-    description:
-      "A Python-based desktop application for downloading content from Ragalahari. Showcases CLI design, web scraping, and file handling.",
-    tech: ["Python", "Web Scraping", "CLI", "2024"],
-    github: "https://github.com/DevSon1024/Ragalahari-Downloader-2024",
-    date: "2024-06-01",
-    isLatest: false,
-    category: "Others",
-    icon: <FaPython className="text-3xl text-[#3776AB]" />,
-  },
-];
+import projectsData from "@/data/projects.json";
+
+const getProjectIcon = (iconName?: string) => {
+  switch (iconName) {
+    case "FaLaptopCode":
+      return <FaLaptopCode className="text-3xl text-purple-500" />;
+    case "FaCode":
+      return <FaCode className="text-3xl text-indigo-500" />;
+    case "FaDumbbell":
+      return <FaDumbbell className="text-3xl text-amber-500" />;
+    case "FaPlaneDeparture":
+      return <FaPlaneDeparture className="text-3xl text-indigo-500" />;
+    case "FaPython":
+      return <FaPython className="text-3xl text-[#3776AB]" />;
+    default:
+      return <FaCode className="text-3xl text-indigo-500" />;
+  }
+};
+
+const projects = [...projectsData].sort((a, b) => {
+  const aLatest = !!a.isLatest;
+  const bLatest = !!b.isLatest;
+  if (aLatest !== bLatest) {
+    return aLatest ? -1 : 1;
+  }
+  if (aLatest && bLatest) {
+    const aOrder =
+      typeof (a as any).latestOrder === "number"
+        ? (a as any).latestOrder
+        : typeof (a as any).order === "number"
+        ? (a as any).order
+        : Infinity;
+    const bOrder =
+      typeof (b as any).latestOrder === "number"
+        ? (b as any).latestOrder
+        : typeof (b as any).order === "number"
+        ? (b as any).order
+        : Infinity;
+    if (aOrder !== bOrder) {
+      return aOrder - bOrder;
+    }
+  }
+  const aIndex = projectsData.indexOf(a);
+  const bIndex = projectsData.indexOf(b);
+  return aIndex - bIndex;
+});
+
 
 const isProjectNew = (dateString: string) => {
   const projectDate = new Date(dateString);
@@ -164,7 +93,10 @@ export default function Projects() {
         className="text-center mb-12"
       >
         <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 tracking-tight">
-          My <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-amber-400">Projects</span>
+          My{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-amber-400">
+            Projects
+          </span>
         </h1>
         <p className="text-slate-400 font-mono text-xs tracking-widest uppercase">
           INDEX // SHIPPED APPLICATIONS & WORK logs
@@ -187,7 +119,9 @@ export default function Projects() {
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 className={`relative px-3 sm:px-6 py-1.5 sm:py-2 rounded-xl text-[10px] sm:text-sm font-semibold transition-all duration-300 ${
-                  isActive ? "text-slate-100" : "text-slate-400 hover:text-slate-200"
+                  isActive
+                    ? "text-slate-100"
+                    : "text-slate-400 hover:text-slate-200"
                 }`}
               >
                 <span className="relative z-10">{cat}</span>
@@ -205,10 +139,7 @@ export default function Projects() {
       </motion.div>
 
       {/* Projects Grid */}
-      <motion.div
-        layout
-        className="grid grid-cols-1 md:grid-cols-2 gap-8"
-      >
+      <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <AnimatePresence mode="popLayout">
           {filteredProjects.map((project) => (
             <motion.div
@@ -232,7 +163,7 @@ export default function Projects() {
                       className="object-cover"
                     />
                   ) : (
-                    project.icon
+                    getProjectIcon(project.icon)
                   )}
                 </div>
 
@@ -333,7 +264,8 @@ export default function Projects() {
             More Projects Commencing Soon!
           </h3>
           <p className="text-slate-400 text-sm max-w-xl mb-8 leading-relaxed">
-            I am constantly developing automated scraping services, multimedia rendering pipelines, and custom Android utilities.
+            I am constantly developing automated scraping services, multimedia
+            rendering pipelines, and custom Android utilities.
           </p>
           <div className="flex gap-4 flex-wrap justify-center font-mono text-xs">
             <a

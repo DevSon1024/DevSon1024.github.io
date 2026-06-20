@@ -3,8 +3,8 @@ import ProjectDetail from "../ProjectDetail";
 export default function Page() {
   return (
     <ProjectDetail
-      projectKey="ragalahari"
-      iconSrc="/assets/ragalahari_downloader_icon.png"
+      projectKey="nosved_player_lite"
+      iconSrc="/assets/NosvedPlayerLite.jpg"
     />
   );
 }

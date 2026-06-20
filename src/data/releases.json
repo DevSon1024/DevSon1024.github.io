@@ -198,28 +198,90 @@
     "title": "PixChive",
     "versions": [
       {
-        "version": "v1.0.0",
-        "markdown": "## What's Changed\n\n- Initial public release\n- Browse and archive images from your favourite sources\n- Supports arm64-v8a, armeabi-v7a, x86_64, and universal builds\n\n## Notes\n\nInstall the variant matching your device CPU for optimal performance.",
+        "version": "v1.5.0",
+        "markdown": "# Pixchive v1.5.0 Release Notes\n\n**Release date:** June 2026  \n**Upgrade path:** From v1.1 to v1.5.0\n\nPixchive v1.5.0 is a major product step forward that evolves the app from a simpler image browser into a more complete comic-plus-gallery experience with smoother interactions, modern Material You styling, stronger media tools, and a far more polished navigation flow. A structured release note format with grouped sections such as Added, Changed, Fixed, and Removed is widely recommended because changelogs should be curated for humans rather than copied from raw commit history.\n\n> ## Highlights\n\n- Expanded Pixchive into a more complete comic and gallery app with modern Material 3 and Material You inspired interactions across browsing, viewing, search, and settings.\n- Introduced major gallery capabilities such as All Images mode, global search, recycle bin support, rename tools, richer metadata, multi-selection, and persistent pinch-to-zoom layouts.\n- Improved smoothness and stability through paging, background-thread work, optimized thumbnail loading, recomposition fixes, memory improvements, and ANR prevention work.\n\n> ## Added\n\n>> ### New features\n- Added a full **All Images** gallery mode so users can browse their device photos in one date-grouped stream instead of only folder-based views.\n- Added global image search with real-time suggestions, dedicated search results, and smoother transitions across gallery screens.\n- Added a recycle bin workflow with restore and permanent delete support.\n- Added rename support for both images and folders with a dedicated rename dialog.\n- Added multi-selection support for folders and images with long-press activation and bulk actions.\n- Added select-all actions for folders and images.\n- Added direct share utilities for single and multiple images.\n- Added image information surfaces across the app, including detailed metadata and EXIF-focused information dialogs.\n- Added a custom Home option to make the home screen more dynamic.\n- Added live scrubbing previews for folder images to make fast-forward style browsing feel more interactive.\n\n>> ### Viewer and browsing tools\n- Added immersive mode support in the image viewer for a cleaner edge-to-edge experience.\n- Added shared element transitions from grid items into the image viewer for smoother opening animations.\n- Added a premium gallery viewer flow with pan, zoom, double-tap behavior, subsampling, and pager-based image navigation.\n- Added gallery media actions such as Share, Copy to Clipboard, Edit, and Move to Trash from the image viewer.\n- Added a toggleable blur setting for the viewer background with persistence through app settings.\n- Added persistent pinch-to-zoom grid sizing so gallery cell preferences remain saved across navigation and app restarts.\n\n>> ### Settings and personalization\n- Added six new app color palettes inspired by your broader design system direction.\n- Added theme selection for Light, Dark, and System Default modes.\n- Added a transparent navigation bar option.\n- Added language selection support with first-language guidance.\n- Added gallery view settings to control field visibility on folder and image cards.\n- Added a rotary sort wheel and expanded sorting support for filename, date, size, resolution, path, and file type.\n\n> ## Changed\n\n>> ### UI and design\n- Replaced standard DropdownMenus with Material 3 bottom option sheets throughout the app to improve mobile usability and match a modern bottom-driven interaction pattern.\n- Upgraded image details from a dialog into a premium Material 3 modal bottom sheet with grouped metadata presentation.\n- Refreshed the Comic Reader screen so it visually aligns better with the gallery image viewer.\n- Updated folder and image cards in both grid and list modes with richer metadata, clearer hierarchy, and more polished Material-styled layouts.\n- Refined Home Screen browsing with a HorizontalMultiBrowseCarousel for history cards and dynamic entry points into the gallery.\n- Changed comic section grid density from 6 to 4 columns for better readability and touch comfort.\n- Updated multiple top bars, overlays, and system navigation surfaces to better support transparent and edge-to-edge layouts.\n\n>> ### Navigation and structure\n- Refactored gallery browsing into a unified pager-based flow between Albums and Photos, with saved default-tab behavior and better state restoration.\n- Merged and cleaned screen structures such as FolderViewScreen and related folder flows to simplify the browsing experience.\n- Refactored settings into clearer dedicated folders and improved the overall project organization.\n- Implemented type-safe navigation and improved route handling across the independent gallery architecture.\n- Reworked gallery navigation so Albums and All Images behave as synchronized parallel browse modes without backstack clutter.\n\n>> ### Performance and responsiveness\n- Integrated Paging 3 and moved heavy file I/O work off the main thread to improve responsiveness.\n- Optimized grid image loading, thumbnail fetching, and memory handling to reduce lag, stutter, and out-of-memory risk.\n- Reduced unnecessary recompositions in gallery lists and grids for smoother scrolling behavior.\n- Improved thumbnail and grid rendering behavior to better support pinch-to-zoom transitions and dense browsing views.\n- Swapped older blur and image viewing approaches for more stable native or better-optimized alternatives.\n\n> ## Fixed\n\n- Fixed a misclick issue in AllImagesScreen.\n- Fixed saved preference behavior for restoring the default browse screen between Albums and Photos.\n- Fixed the top bar title in ImageFolderScreen so it now shows the actual folder name instead of a generic label.\n- Fixed Window and system UI state leaks in the media viewer.\n- Fixed lag and stutter when navigating back from the image viewer to image browsing screens.\n- Fixed grid selection issues and improved long-press selection behavior.\n- Fixed pinch-zoom grid issues where cells were cropped or scrolling broke during zoom transitions.\n- Fixed storage explorer overlay and layout issues around top bars, bottom bars, and selection sheets.\n- Fixed settings-sheet mapping issues so grid column selections persist correctly.\n- Fixed ANR and database lock contention during folder sync by reducing write pressure and improving cancellation safety.\n- Fixed optimistic deletion flows so removed media updates immediately across gallery views.\n- Fixed various unresolved references, syntax issues, and compile-time problems in settings and image viewer flows.\n- Fixed the issue where favorite images were not showing correctly.\n\n> ## Removed\n\n- Removed excessive zoom behavior from AllImagesScreen for a more controlled browsing experience.\n- Removed horizontal and vertical scroll bars from ImageViewScreen for a cleaner full-screen viewer.\n- Removed older drag-select behavior for now to avoid unstable interaction patterns before a future reintroduction.\n- Removed legacy video-player oriented UI, models, overlays, and dependencies while transforming the experience into image-first gallery components.\n- Removed older duplicate or overly heavy gallery files that were adding unnecessary complexity to list and grid layouts.\n\n> ## Architecture and developer improvements\n\n- Built an independent gallery architecture in multiple phases to keep the standard device gallery separated from the SAF-based comic reader flow.\n- Introduced gallery-specific domain models, repository flows, dedicated ViewModels, and cleaner screen routing to improve maintainability.\n- Refactored media actions, settings sheets, selection helpers, and gallery components into more reusable and modular structures.\n- Improved real-time MediaStore observation so the UI reacts faster to device media changes.\n\n> ## Suggested release summary\n\nPixchive v1.5.0 transforms the app into a richer comic and gallery experience with modern Material 3 design, global image search, All Images mode, recycle bin support, smarter viewer tools, persistent pinch zoom layouts, and major smoothness improvements throughout the app. This kind of backward-compatible feature-heavy jump is consistent with a minor-version release under semantic versioning, especially when the update adds substantial capability without being framed as a breaking rewrite.",
         "releases": [
           {
             "abi": "arm64-v8a",
-            "url": "https://github.com/DevSon1024/pixchive/releases/latest/download/pixchive-arm64-v8a.apk",
-            "size": "10.2 MB"
+            "url": "https://github.com/DevSon1024/PixChive/releases/download/v1.5.0/PixChive-v1.5.0-arm64-v8a.apk",
+            "size": "10.50 MB"
           },
           {
             "abi": "armeabi-v7a",
-            "url": "https://github.com/DevSon1024/pixchive/releases/latest/download/pixchive-armeabi-v7a.apk",
-            "size": "9.7 MB"
+            "url": "https://github.com/DevSon1024/PixChive/releases/download/v1.5.0/PixChive-v1.5.0-armeabi-v7a.apk",
+            "size": "10.50 MB"
+          },
+          {
+            "abi": "x86",
+            "url": "https://github.com/DevSon1024/PixChive/releases/download/v1.5.0/PixChive-v1.5.0-x86.apk",
+            "size": "10.50 MB"
           },
           {
             "abi": "x86_64",
-            "url": "https://github.com/DevSon1024/pixchive/releases/latest/download/pixchive-x86_64.apk",
-            "size": "11.0 MB"
+            "url": "https://github.com/DevSon1024/PixChive/releases/download/v1.5.0/PixChive-v1.5.0-x86_64.apk",
+            "size": "10.50 MB"
           },
           {
             "abi": "universal",
-            "url": "https://github.com/DevSon1024/pixchive/releases/latest/download/pixchive-universal.apk",
-            "size": "15.6 MB"
+            "url": "https://github.com/DevSon1024/PixChive/releases/download/v1.5.0/PixChive-v1.5.0-universal.apk",
+            "size": "10.51 MB"
+          }
+        ]
+      },
+      {
+        "version": "v1.1.0",
+        "markdown": "# PixChive v1.1\n\nWe are excited to release PixChive v1.1.0! This update focuses heavily on polishing the user interface, giving you more control over your reading experience, and squashing several annoying bugs. \n\nHere is everything new and improved in this version:\n\n### UI & User Experience Enhancements\n* **New Rotary Sorting Wheel:** We've introduced a brand-new, rotary-designed sorting wheel. It looks great and provides a much better user experience with plenty of sorting options to organize your library.\n* **Refreshed Display Options:** The Display Options sheet has been updated with a newly adjusted layout and a cleaner UI.\n* **Settings & Theming:** The Settings screen has received a UI overhaul. You now have the freedom to choose between the app's default theme or your device's dynamic theme.\n* **Custom Volume Controls:** Added a new custom toggle so you can change how the volume buttons behave while using the app.\n* **Smoother App Loading:** We've made several adjustments under the hood to make the overall loading experience feel noticeably smoother and more responsive.\n* **Updated About Page & Privacy:** The About page has been revamped to include proper links to our GitHub and Telegram, alongside your device info. We have also added a dedicated Privacy Policy section.\n\n### Advanced Developer Features\n* **Hidden Developer Mode:** You can now unlock Developer Mode! Simply tap the app version 8 times in the Settings screen. Once enabled, you can access a dedicated Log Screen to view app errors and warnings, making troubleshooting much easier.\n\n### Bug Fixes & Performance\n* **Webtoon Mode Fix:** Solved a bug in Webtoon mode that was causing unexpected image quality loss.\n* **Accurate Chapter Navigation:** Fixed an annoying issue where chapters from a previously viewed folder would mistakenly appear in the present one.\n* **Background Image Loading:** Optimized how images are fetched. New images will now load quietly in the background without interfering or mingling with the active UI.\n* **Shimmer Adjustments:** Tweaked and adjusted the shimmer loading animations to look more natural.\n\n---\n\nThank you for using PixChive! If you encounter any issues or have feature requests, feel free to reach out to us on our GitHub or Telegram channels.",
+        "releases": [
+          {
+            "abi": "arm64-v8a",
+            "url": "https://github.com/DevSon1024/PixChive/releases/download/v1.1/PixChive-v1.1-arm64-v8a.apk",
+            "size": "10.04 MB"
+          },
+          {
+            "abi": "armeabi-v7a",
+            "url": "https://github.com/DevSon1024/PixChive/releases/download/v1.1/PixChive-v1.1-armeabi-v7a.apk",
+            "size": "10.04 MB"
+          },
+          {
+            "abi": "x86",
+            "url": "https://github.com/DevSon1024/PixChive/releases/download/v1.1/PixChive-v1.1-x86.apk",
+            "size": "10.04 MB"
+          },
+          {
+            "abi": "x86_64",
+            "url": "https://github.com/DevSon1024/PixChive/releases/download/v1.1/PixChive-v1.1-x86_64.apk",
+            "size": "10.04 MB"
+          }
+        ]
+      },
+      {
+        "version": "v1.0.0",
+        "markdown": "## This is the first official release of PixChive!\n\nI built PixChive to solve a specific problem: viewing massive local image archives and reading downloaded manga or comics chapter-by-chapter without dealing with slow load times or cluttered interfaces.\n\nIt is a completely offline, mobile-first Android app built natively with Kotlin and Jetpack Compose. A major focus during development was ensuring smooth scrolling and efficient memory management, so the app can comfortably handle thousands of high-resolution images without lagging.\n\n**What's included in this release:**\n\n- **Folder-based Navigation:** Directly browse your local storage exactly how you organized it.\n\n- **Dedicated Reading Modes:** Includes standard pagination, Webtoon-style vertical scrolling, and right-to-left Manga reading directions.\n\n- **Offline-First:** No accounts, no tracking, and no internet required. Everything stays on your device.\n\n- **Fast & Native:** Built with an MVVM architecture using modern Android APIs (MediaStore/File) for snappy folder scanning and rendering.\n\n**Installation:**\nDownload the app-release.apk file from the assets below and install it directly on your Android device.\n\nIf you encounter any bugs or have feature requests, please feel free to open an issue. Contributions are always welcome.",
+        "releases": [
+          {
+            "abi": "arm64-v8a",
+            "url": "https://github.com/DevSon1024/PixChive/releases/download/v1.0.0/PixChive-v1.0-arm64-v8a.apk",
+            "size": "9.75 MB"
+          },
+          {
+            "abi": "armeabi-v7a",
+            "url": "https://github.com/DevSon1024/PixChive/releases/download/v1.0.0/PixChive-v1.0-armeabi-v7a.apk",
+            "size": "9.75 MB"
+          },
+          {
+            "abi": "x86_64",
+            "url": "https://github.com/DevSon1024/PixChive/releases/download/v1.0.0/PixChive-v1.0-x86_64.apk",
+            "size": "9.75 MB"
+          },
+          {
+            "abi": "universal",
+            "url": "https://github.com/DevSon1024/PixChive/releases/download/v1.0.0/PixChive-v1.0-universal.apk",
+            "size": "9.76 MB"
+          },
+          {
+            "abi": "x86",
+            "url": "https://github.com/DevSon1024/PixChive/releases/download/v1.0.0/PixChive-v1.0-x86.apk",
+            "size": "9.75 MB"
           }
         ]
       }
@@ -229,31 +291,154 @@
     "title": "Nosved Player",
     "versions": [
       {
-        "version": "v1.0.0",
-        "markdown": "## What's Changed\n\n- Initial public release\n- Powerful local media player with a clean UI\n- Available for arm64-v8a, armeabi-v7a, x86_64, and universal targets\n\n## Notes\n\nPick the APK that corresponds to your device's architecture.",
+        "version": "v1.1.0",
+        "markdown": "# Nosved Player v1.1.0 Release Notes\n\n> ## Update:\n- Implemented Local Subtitle Import Settings with proper Quality and Styling Controls\n\n---\n\n> ## Bug Fixes:\n- Solve issue of Stuttering Control Editor\n- Solved the crash while Fast Scrolling at FeedScreen\n\n**Full Changelog**: [Here](https://github.com/DevSon1024/Nosved-Player/compare/v1.0.0...v1.1.0)",
         "releases": [
           {
             "abi": "arm64-v8a",
-            "url": "https://github.com/DevSon1024/Nosved-Player/releases/latest/download/nosved-arm64-v8a.apk",
-            "size": "14.3 MB"
+            "url": "https://github.com/DevSon1024/Nosved-Player/releases/download/v1.1.0/NosvedPlayer-v1.1.0-arm64-v8a.apk",
+            "size": "32.83 MB"
           },
           {
             "abi": "armeabi-v7a",
-            "url": "https://github.com/DevSon1024/Nosved-Player/releases/latest/download/nosved-armeabi-v7a.apk",
-            "size": "13.8 MB"
-          },
+            "url": "https://github.com/DevSon1024/Nosved-Player/releases/download/v1.1.0/NosvedPlayer-v1.1.0-armeabi-v7a.apk",
+            "size": "15.56 MB"
+          }
+        ]
+      },
+      {
+        "version": "v1.0.0",
+        "markdown": "# Nosved Player v1.0.0 Release Notes\n\n**Release date:** 10 June 2026  \n**Initial release:** First official public release of the full-featured Nosved Player\n\n## Relationships\n\n- **Nosved Player** (full version): mpv-android engine with deep customization, network streaming, full yt-dlp integration, watch history, and advanced player controls.\n- **Nosved Player Lite**: UI-focused variant with ExoPlayer engine, basic network streaming, and a lighter feature set.\n\n## Core Features\n\n### Playback\n\n- mpv-android engine for broader codec support and stronger playback flexibility\n- Local video playback with folder browsing\n- Network stream playback for direct URLs\n- Android share-intent support (open videos from other apps)\n\n### Player Controls\n\n- Large Player Settings side sheet for playback configuration\n- Subtitle and audio track selection with speed/style controls\n- Chapter/segment support when available\n- Swipe-to-seek with adjustable sensitivity\n- Multi-finger gestures (pinch-to-zoom, speed-lock)\n- Redesigned volume/brightness gestures with 200% volume boost\n- Screen-awake during playback\n- Auto-play next video\n\n### Browsing & Discovery\n\n- Modern Video List with folder browsing\n- Search results with video info\n- Orientation filters (All/Portrait/Landscape)\n- Feed mode for vertical video browsing\n- Watch history with Room persistence + progress overlays\n- History screen with clear-all action\n- Tags and file sharing\n\n### Thumbnails & Metadata\n\n- MediaStore-based thumbnail fetching with caching\n- Multiple thumbnail strategies (Smart, First Frame, Embedded, etc.)\n- Embedded artwork extraction (Matroska, etc.)\n- Full metadata parsing with FPS chips\n\n### File Management\n\n- Recycle bin with restore/delete support\n- Storage explorer with tree navigation\n- Move/copy without MANAGE_EXTERNAL_STORAGE\n\n### Streaming & YouTube\n\n- yt-dlp integration with quality selection, installation checks, and settings\n- Custom mpv.conf editor with autocomplete and help docs\n- Network stream history with progress tracking\n\n### Customization\n\n- Control layout editor (portrait/landscape)\n- Playback control repositioning (middle/bottom)\n- Seek bar styles, gradients, vector options\n- Smart enhance feature with mpv equalizer (saturation, contrast, brightness, gamma, hue)\n\n## Key Improvements\n\n### Performance\n\n- Optimized MediaStore queries (faster lists, no unnecessary fallback reads)\n- Faster thumbnail loading with caching\n- Reduced player startup latency and I/O bottlenecks\n- Improved navigation transitions\n\n### Release Optimization\n\n- Reduced APK size (removed unneeded binaries, R8 full mode, optimized font asset)\n- Reliable yt-dlp binary extraction on Android\n- Cleaner codebase structure\n\n## Fixes\n\n- Timestamp formatting bugs (future year corrections)\n- Seekbar ghosting and scrolling stutter\n- Player ANR and double-tap crash fixes\n- Decoder fallback issues (HW/SW handling)\n- Blank playback / audio-only after restart\n- Screen-orientation lock + background audio edge cases\n- Thumbnail-fetching crashes\n- Scoped-storage file operation bugs\n- Release-version specific bugs and native crashes\n\n## Summary\n\nNosved Player v1.0.0 is the first official release of the full-featured mpv-powered video player with deep customization, network streaming, yt-dlp support, watch history, gesture controls, advanced metadata, and a polished Material 3 experience from browsing to playback.\n\n**Full Changelog**: https://github.com/DevSon1024/Nosved-Player/commits/v1.0.0",
+        "releases": [
           {
-            "abi": "x86_64",
-            "url": "https://github.com/DevSon1024/Nosved-Player/releases/latest/download/nosved-x86_64.apk",
-            "size": "15.0 MB"
-          },
-          {
-            "abi": "universal",
-            "url": "https://github.com/DevSon1024/Nosved-Player/releases/latest/download/nosved-universal.apk",
-            "size": "20.1 MB"
+            "abi": "arm64-v8a",
+            "url": "https://github.com/DevSon1024/Nosved-Player/releases/download/v1.0.0/NosvedPlayer-v1.0.0-arm64-v8a.apk",
+            "size": "32.82 MB"
           }
         ]
       }
     ]
+  },
+  "nosved_player_lite": {
+    "title": "Nosved Player Lite",
+    "versions": [
+      {
+        "version": "v1.4.0",
+        "markdown": "",
+        "releases": [
+          {
+            "abi": "arm64-v8a",
+            "url": "https://github.com/DevSon1024/Nosved-Player-Lite/releases/download/v1.4.0/NosvedPlayer_v1.4.0-arm64-v8a.apk",
+            "size": "13.60 MB"
+          },
+          {
+            "abi": "armeabi-v7a",
+            "url": "https://github.com/DevSon1024/Nosved-Player-Lite/releases/download/v1.4.0/NosvedPlayer_v1.4.0-armeabi-v7a.apk",
+            "size": "27.85 MB"
+          },
+          {
+            "abi": "x86",
+            "url": "https://github.com/DevSon1024/Nosved-Player-Lite/releases/download/v1.4.0/NosvedPlayer_v1.4.0-x86.apk",
+            "size": "14.49 MB"
+          },
+          {
+            "abi": "x86_64",
+            "url": "https://github.com/DevSon1024/Nosved-Player-Lite/releases/download/v1.4.0/NosvedPlayer_v1.4.0-x86_64.apk",
+            "size": "14.10 MB"
+          }
+        ]
+      },
+      {
+        "version": "v1.3.0",
+        "markdown": "### Nosved Player v1.3.0 - Changelog\n**One of The Biggest as per me**\n#### Playback \\& Gestures\n\n- Implement smooth seeking:\n    - `CLOSEST_SYNC` seeks, 3-phase seek model (start/preview/commit), improved buffering and timestamp previews.\n- Refactor gesture system:\n    - Long-press fast seek with gesture locking, double-tap ripple unified in GestureOverlay, fixed stuck animations.\n- Remove legacy framerate field and start work on SW-decoder-friendly stats.\n\n#### Watch History, States & Badges\n\n- Add **WatchHistoryScreen** with clear history support and integrate into Home’s Continue Watching.\n- Introduce `VideoWatchState` + `getWatchState` and unify badges:\n    - WatchStateBadge on videos (NEW/Running/Ended).\n    - NewCountBadge on folders with real-time updates via historyMap.\n- Fix mis-tagging of ended videos and add manual Tag dialog to override statuses.\n\n#### Metadata, Search & Recycle Bin\n\n- Implement hybrid metadata caching:\n    - MediaStore projections for shallow metadata, Room cache for deep metadata, background indexer for post-scan enrichment.\n- Add RecycleBinScreen using MediaStore Trash APIs:\n    - Entry point in Home, full Marathi translation, fixed expiry calculation bug, repository return-type fix.\n- Search system:\n    - New SearchResultScreen wired into NavGraph.\n    - Suggestion popup component, layout toggle (list/grid with persistent column count).\n\n\n#### Home & Library\n\n- Add Recently Added carousel (last 10 videos).\n- Add delete confirmation dialog to prevent accidental deletes.\n- Fix explorer sorting and display info in Files/Explorer views.\n- Auto-refresh library after file operations.\n\n\n#### Device Stats & Tools\n\n- Redesign DeviceStatsOverlay:\n    - Material 3 Card, close button, dynamic framerate via `VideoFrameMetadataListener`, tied to Developer section toggle.\n- Introduce Tool/ Timestamp Tool:\n    - Ms ↔ time conversion, clipboard actions, navigation wiring, and a live time section with lifecycle-aware updates.\n\n\n#### MediaSession & Intents\n\n- Configure ExoPlayer with proper `AudioAttributes` and noisy audio handling.\n- Integrate Media3 MediaSession via ForwardingPlayer for headset controls.\n- Add ACTION_VIEW intent handling and share actions (single/multiple).\n- Register shortcuts for launcher discovery and fix shortcut XML/strings issues.\n\n\n#### Player Interface & UI\n\n- New PlayerInterface settings screen:\n    - Orientation, full-screen, soft buttons, brightness, elapsed/battery/clock toggles.\n- Wire `showRemainingTime` from SettingsViewModel through PlayerControls and YouTube-style controls.\n- Adjust overlay placement (elapsed/battery/clock) and rotation button positions for both standard and YT-style layouts.\n- Fix watch history progress reset when re-entering videos.\n\n\n#### FAB, Rotary, and Selection\n\n- Rotary sort wheel redesign + layout fixes + close icon.\n- Add Preview FAB:\n    - Dual gesture (tap=play/close, long press=preview card), spring rotation animation, Coil-based thumbnail caching.\n- Implement “selectByThumbnail” behavior across list/grid/folder views.\n\n\n#### Navigation Bar & Theme\n\n- Add `isNavBarTransparent` preference (DataStore), wire to theme and MainActivity, propagate across major screens.\n- Standardize TopAppBar colors for About, Privacy, Log, and secondary screens.\n- Refactor onboarding to support dynamic theme + add Greeting Splash to prevent initial flash.\n\n#### Localization\n\n- Add Marathi as a language option and translate (still work In Progress for lots of Pages InApp):\n    - Home, History, About, Log, Folder List, Recycle Bin, YT controls, formatters, explorer, info sheets.\n\n#### Architecture & Data Safety\n\n- Replace destructive Room migration with MIGRATION_1_2:\n    - Extend watch_history and video_metadata_cache schema safely; enforce migration in database builder.\n- Implement longest-prefix visibility resolver and path normalization for SAF URIs.\n- Extend WatchHistory with path field and update repository logic.\n- Add safePopBackStack() to avoid back stack depletion.\n\n\n#### Refactors, Cleanup & Misc\n\n- Modularize VideoList and FolderList into dedicated packages with UiState/UiEvent/UiAction.\n- Remove legacy screens and empty controllers.\n- Address Gradle version compatibility, build warnings, and Material 3 API updates (`menuAnchor`).\n- Update screenshots, .gitignore, and planning docs (codebase map).",
+        "releases": [
+          {
+            "abi": "arm64-v8a",
+            "url": "https://github.com/DevSon1024/Nosved-Player-Lite/releases/download/v1.3.0/NosvedPlayer_v1.3.0-arm64-v8a.apk",
+            "size": "7.52 MB"
+          },
+          {
+            "abi": "armeabi-v7a",
+            "url": "https://github.com/DevSon1024/Nosved-Player-Lite/releases/download/v1.3.0/NosvedPlayer_v1.3.0-armeabi-v7a.apk",
+            "size": "7.43 MB"
+          },
+          {
+            "abi": "x86",
+            "url": "https://github.com/DevSon1024/Nosved-Player-Lite/releases/download/v1.3.0/NosvedPlayer_v1.3.0-x86.apk",
+            "size": "7.66 MB"
+          },
+          {
+            "abi": "x86_64",
+            "url": "https://github.com/DevSon1024/Nosved-Player-Lite/releases/download/v1.3.0/NosvedPlayer_v1.3.0-x86_64.apk",
+            "size": "7.66 MB"
+          },
+          {
+            "abi": "universal",
+            "url": "https://github.com/DevSon1024/Nosved-Player-Lite/releases/download/v1.3.0/NosvedPlayer_v1.3.0-universal.apk",
+            "size": "18.09 MB"
+          }
+        ]
+      },
+      {
+        "version": "v1.2.0",
+        "markdown": "# 🔥🔥 Nosved Player v1.2.0 is Here!\nWe've been hard at work making Nosved Player smarter, faster, and much more enjoyable to use. Version 1.2.0 brings massive improvements to how you manage your files, alongside some beautiful design refreshes and crucial bug fixes.\n\nHere is everything new in this update:\n\n## ✨ What's New\nSmart Multi-Selection: You can now long-press on folders or videos to select multiple items at once! Once selected, a new action bar appears allowing you to Play All, Move, Copy, Delete, or Rename multiple files in one go.\n\n* **All-New Custom Storage Explorer:** We've replaced the clunky system file picker with our own premium, custom-built Storage Explorer. Moving, copying, and creating folders is now faster and much more reliable.\n* **Youtube like Player:** Experience local videos same UI as Youtube with best seek and and gestures (Dual Player UI)\n* **Pick Up Where You Left Off:** Videos now consistently remember their last played position. When you open a video from anywhere in the app, it will seamlessly resume exactly where you stopped.\n\n* **Detailed Folder Insights:** Select any folder and tap the \"Info\" icon to instantly see the total number of videos, aggregated folder size, creation date, and exact storage location.\n\n## 🎨 UI & UX Updates\nRedesigned View Settings: The View Settings menu (bottom sheet) has been completely overhauled! It now features a sleek 3x3 grid for metadata toggles, centered column selectors, and modern segmented buttons for layout options.\n\n* **Glassmorphism Rename Dialog:** Renaming files and folders just got a visual upgrade. We’ve introduced a beautiful, modern rename dialog with rounded corners and no annoying character limits.\n\n* **Improved \"Continue Watching\" History:** Added visual progress bars under videos in the list/grid views so you can see your watch progress at a glance.\n\n* **Deleting a history item is now much cooler:** just long-press the card, and a slick, animated \"Delete\" button pops up right in the center.\n\nThe Home screen history list is now smartly limited to your 10 most recent videos to keep things clean.\n\n* **Visual Polish:** Selected folders and videos now show a beautiful primary color highlight and a checkmark badge. We also added the official Nosved Player logo to the About screen!\n\n## 🐛 Bug Fixes & Improvements:\n* **Hidden Files Actually Show Up:** Fixed a major issue where the \"Show Hidden Files\" toggle wouldn't work. We built a custom background scanner to ensure videos in hidden folders (or .nomedia folders) are properly detected when you want them to be.\n\n* **Zero-Byte Metadata Fix:** Fixed a bug where videos would incorrectly show \"0:00\" duration or \"0 MB\" size. The app now uses a multi-layered fallback system to guarantee accurate video lengths and file sizes.\n\n* **Accurate Resolution & Frame Rate:** Cleaned up the video details. Resolutions now display cleanly (e.g., \"1920x1080\"), and frame rates show as whole numbers (e.g., \"30 fps\" instead of \"30.0 fps\" or weird 0 fps artifacts).\n\n* **Flawless File Operations:** Moving and copying large files is now strictly verified byte-by-byte to prevent corrupted or \"0-byte\" files from appearing if a stream errors out.\n\n* **Unified Bottom Action Bar:** Fixed an annoying bug where bottom bar actions (Move/Copy/Delete) would fail or do nothing depending on whether you were in \"Files\" or \"Folders\" view. It now works flawlessly across the entire app.\n\n* **Navigation Fix:** Fixed an issue where hitting the \"Back\" button from the Settings menu would force you all the way back to the Home screen. It now correctly takes you to your previous screen.\n\n* Update now to experience the smoothest version of Nosved Player yet! As always, let us know what you think and keep the feedback coming.\n\n## What's Changed\n* testing pr by @DevSon1024 in https://github.com/DevSon1024/Nosved-Player/pull/1\n\n## New Contributors\n* @DevSon1024 made their first contribution in https://github.com/DevSon1024/Nosved-Player/pull/1\n\n**Full Changelog**: https://github.com/DevSon1024/Nosved-Player/compare/v1.0.0...v1.2.0",
+        "releases": [
+          {
+            "abi": "arm64-v8a",
+            "url": "https://github.com/DevSon1024/Nosved-Player-Lite/releases/download/v1.2.0/NosvedPlayer_v1.2.0_Release_arm64-v8a.apk",
+            "size": "12.79 MB"
+          },
+          {
+            "abi": "armeabi-v7a",
+            "url": "https://github.com/DevSon1024/Nosved-Player-Lite/releases/download/v1.2.0/NosvedPlayer_v1.2.0_Release_armeabi-v7a.apk",
+            "size": "11.74 MB"
+          },
+          {
+            "abi": "x86",
+            "url": "https://github.com/DevSon1024/Nosved-Player-Lite/releases/download/v1.2.0/NosvedPlayer_v1.2.0_Release_x86.apk",
+            "size": "13.92 MB"
+          },
+          {
+            "abi": "x86_64",
+            "url": "https://github.com/DevSon1024/Nosved-Player-Lite/releases/download/v1.2.0/NosvedPlayer_v1.2.0_Release_x86_64.apk",
+            "size": "14.00 MB"
+          }
+        ]
+      },
+      {
+        "version": "v1.0.0",
+        "markdown": "# Welcome to Nosved Player v1.0.0! 🎉\n\nThis is the first official release of the app. It brings a sleek, ad-free video playback experience with a focus on performance and clean UI.\n\n## Key Features\n* **Core Playback:** High-performance, ad-free video player supporting standard formats (MP4, MKV, etc.).\n* **Intuitive Navigation:** Seamlessly browse your media via the dedicated Video List and Folder List screens.\n* **Modern UI:** Clean, minimalist interface featuring a premium glassmorphism/brushed metal design aesthetic.\n* **Gesture Controls:** Swipe controls for volume, brightness, and seeking (adjust if applicable).\n\n## Installation Instructions\n1. Download the `\nNosvedPlayer_v1.0_Release_arm64-v8a.apk\n` file from the **Assets** section below.\n2. Transfer the APK to your Android device (if downloaded on a PC).\n3. Open the file on your device. You may need to enable **\"Install unknown apps\"** from your browser or file manager in Android settings.\n4. Install and enjoy!\n\n## Known Issues\n* Bottom navigation options might occasionally lack visual feedback on tap in Files and Folders View Modes (currently investigating).\n\n## 🤝 Feedback & Contributions\nFound a bug or have a feature request? Please [open an issue](https://github.com/DevSon1024/Nosved-Player/issues) or submit a pull request!",
+        "releases": [
+          {
+            "abi": "arm64-v8a",
+            "url": "https://github.com/DevSon1024/Nosved-Player-Lite/releases/download/v1.0.0/NosvedPlayer_v1.0_Release_arm64-v8a.apk",
+            "size": "12.66 MB"
+          },
+          {
+            "abi": "armeabi-v7a",
+            "url": "https://github.com/DevSon1024/Nosved-Player-Lite/releases/download/v1.0.0/NosvedPlayer_v1.0_Release_armeabi-v7a.apk",
+            "size": "11.61 MB"
+          },
+          {
+            "abi": "x86_64",
+            "url": "https://github.com/DevSon1024/Nosved-Player-Lite/releases/download/v1.0.0/NosvedPlayer_v1.0_Release_x86_64.apk",
+            "size": "13.87 MB"
+          },
+          {
+            "abi": "x86",
+            "url": "https://github.com/DevSon1024/Nosved-Player-Lite/releases/download/v1.0.0/NosvedPlayer_v1.0_Release_x86.apk",
+            "size": "13.79 MB"
+          }
+        ]
+      }
+    ]
+  },
+  "linknest": {
+    "title": "LinkNest",
+    "versions": []
+  },
+  "syntaxtor": {
+    "title": "Syntactor",
+    "versions": []
   }
 }

@@ -464,6 +464,35 @@ html.light .variant-sub-zinc {
   color: #475569 !important;
 }
 
+html.light .variant-card-emerald {
+  background-color: rgba(16, 185, 129, 0.08) !important;
+  border-color: rgba(16, 185, 129, 0.25) !important;
+}
+html.light .variant-card-emerald:hover {
+  background-color: rgba(16, 185, 129, 0.12) !important;
+  border-color: rgba(16, 185, 129, 0.45) !important;
+}
+html.light .variant-label-emerald,
+html.light .variant-icon-emerald {
+  color: #059669 !important;
+}
+html.light .variant-sub-emerald {
+  color: #047857 !important;
+  opacity: 0.75 !important;
+}
+
+.recommended-badge {
+  background-color: rgba(59, 130, 246, 0.15) !important;
+  border: 1px solid rgba(59, 130, 246, 0.3) !important;
+  color: #93c5fd !important;
+}
+
+html.light .recommended-badge {
+  background-color: rgba(59, 130, 246, 0.08) !important;
+  border-color: rgba(59, 130, 246, 0.25) !important;
+  color: #1d4ed8 !important;
+}
+
 /* Older Releases list item hover override */
 html.light .divide-y.divide-white\/5 li:hover {
   background-color: rgba(15, 23, 42, 0.03) !important;

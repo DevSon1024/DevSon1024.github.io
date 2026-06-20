@@ -1,0 +1,186 @@
+[
+  {
+    "id": 1,
+    "title": "Nosved Player",
+    "description": "An advanced Android mkv based video player featuring hardware and software decoding , gesture controls, and customizable interfaces with modern controls and streaming functionality.",
+    "tech": [
+      "Android",
+      "Kotlin",
+      "Jetpack Compose",
+      "mkv-android",
+      "2026"
+    ],
+    "github": "https://github.com/DevSon1024/Nosved-Player",
+    "date": "2026-04-10",
+    "isLatest": true,
+    "latestOrder": 1,
+    "category": "Android",
+    "imageIcon": "/assets/NosvedPlayer_icon.png",
+    "detailPage": "/projects/nosved-player"
+  },
+  {
+    "id": 2,
+    "title": "PixChive",
+    "description": "A local gallery and comic/manga reader application featuring hierarchical folder management, quick scanning, and optimized performance.",
+    "tech": [
+      "Android",
+      "Kotlin",
+      "Jetpack Compose",
+      "2026"
+    ],
+    "github": "https://github.com/DevSon1024/PixChive",
+    "uptodown": "https://pixchive.en.uptodown.com/android",
+    "detailPage": "/projects/pixchive",
+    "date": "2026-03-01",
+    "isLatest": true,
+    "latestOrder": 2,
+    "category": "Android",
+    "imageIcon": "/assets/PixChive_icon.png"
+  },
+  {
+    "id": 3,
+    "title": "Gym Management System",
+    "description": "A comprehensive MERN stack web application for managing gym operations including member registrations, attendance tracking, membership plans, and payment processing.",
+    "tech": [
+      "MongoDB",
+      "Express.js",
+      "React",
+      "Node.js",
+      "Material-UI",
+      "2024"
+    ],
+    "github": "https://github.com/DevSon1024/gym-management-system",
+    "date": "2025-12-17",
+    "isLatest": false,
+    "category": "Web",
+    "icon": "FaDumbbell"
+  },
+  {
+    "id": 4,
+    "title": "Tours & Travels Management",
+    "description": "A comprehensive web-based tour package management and booking platform built with CodeIgniter 4. Features admin panel for package management and user authentication.",
+    "tech": [
+      "PHP 8.1+",
+      "CodeIgniter 4",
+      "MySQL",
+      "Bootstrap 5",
+      "2025"
+    ],
+    "github": "https://github.com/DevSon1024/tours-and-travels-php",
+    "date": "2025-12-17",
+    "isLatest": false,
+    "category": "Web",
+    "icon": "FaPlaneDeparture"
+  },
+  {
+    "id": 5,
+    "title": "RagaDL (Ragalahari Downloader)",
+    "description": "A Flutter mobile application designed to download content from Ragalahari. Features a modern UI with efficient download management.",
+    "tech": [
+      "Flutter",
+      "Dart",
+      "Mobile App",
+      "2026"
+    ],
+    "github": "https://github.com/DevSon1024/ragadl-app",
+    "uptodown": "https://ragadl.en.uptodown.com/android",
+    "detailPage": "/projects/ragadl-app",
+    "date": "2026-06-09",
+    "isLatest": true,
+    "latestOrder": 3,
+    "category": "Android",
+    "imageIcon": "/assets/ragalahari_downloader_icon.png"
+  },
+  {
+    "id": 6,
+    "title": "LinkNest",
+    "description": "A comprehensive link management application built with Flutter. Organize, categorize, and manage your important links with ease.",
+    "tech": [
+      "Flutter",
+      "Dart",
+      "Link Management",
+      "2025"
+    ],
+    "github": "https://github.com/DevSon1024/LinkNest",
+    "date": "2025-01-01",
+    "isLatest": false,
+    "category": "Android",
+    "imageIcon": "/assets/LinkNest_icon.png",
+    "detailPage": "/projects/linknest"
+  },
+  {
+    "id": 7,
+    "title": "Ragalahari Downloader 2024",
+    "description": "A Python-based desktop application for downloading content from Ragalahari. Showcases CLI design, web scraping, and file handling.",
+    "tech": [
+      "Python",
+      "Web Scraping",
+      "CLI",
+      "2024"
+    ],
+    "github": "https://github.com/DevSon1024/Ragalahari-Downloader-2024",
+    "date": "2024-06-01",
+    "isLatest": false,
+    "category": "Others",
+    "icon": "FaPython"
+  },
+  {
+    "id": 8,
+    "title": "Smart Institute",
+    "description": "A student management ERP system migrated from .NET to MERN stack. Designed robust student portal logic, integrated Cloudinary for image optimization, and optimized with lazy loading, API rate limiting, and debouncing.",
+    "tech": [
+      "MongoDB",
+      "Express.js",
+      "React.js",
+      "Node.js",
+      "Cloudinary",
+      "Hostinger"
+    ],
+    "github": "https://github.com/DevSon1024/education-erp",
+    "demo": "https://smartinstituteonline.com",
+    "date": "2026-03-20",
+    "isLatest": true,
+    "latestOrder": 4,
+    "category": "Web",
+    "icon": "FaLaptopCode"
+  },
+  {
+    "id": 9,
+    "title": "Movie Ticket Booking System",
+    "description": "An end-to-end ticketing platform inspired by BookMyShow. Programmed custom seat booking arrays, verified user review badge system, and incorporated Redux for global state management.",
+    "tech": [
+      "MongoDB",
+      "Express.js",
+      "React.js",
+      "Node.js",
+      "Redux",
+      "Tailwind CSS"
+    ],
+    "github": "https://github.com/DevSon1024/movie-booking-platform",
+    "demo": "https://movie-ticket-booking-devson1024.netlify.app",
+    "date": "2026-02-15",
+    "isLatest": true,
+    "latestOrder": 5,
+    "category": "Web",
+    "icon": "FaCode"
+  },
+  {
+    "id": 10,
+    "title": "Nosved Player Lite",
+    "description": "An lite Android video player featuring hardware and software decoding (FFmpeg/ExoPlayer), gesture controls, and customizable interfaces.",
+    "tech": [
+      "Android",
+      "Kotlin",
+      "Jetpack Compose",
+      "ExoPlayer",
+      "2026"
+    ],
+    "github": "https://github.com/DevSon1024/Nosved-Player-Lite",
+    "detailPage": "/projects/nosved-player-lite",
+    "date": "2026-06-21",
+    "isLatest": true,
+    "latestOrder": 6,
+    "category": "Android",
+    "imageIcon": "/assets/NosvedPlayerLite.jpg"
+  }
+]
